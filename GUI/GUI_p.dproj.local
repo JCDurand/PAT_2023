@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/06/01 12:49:49.000.204,=C:\Users\Jean Durand\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/06/01 14:13:20.000.057,=C:\Users\Jean Durand\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/03/23 17:26:35.000.386,=C:\Users\Jean Durand\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/03/23 23:35:38.000.641,=C:\Users\Jean Durand\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2023/03/23 23:40:25.000.654,C:\Users\Jean Durand\Documents\Embarcadero\Studio\Projects\Unit2.pas=C:\Users\Jean Durand\Documents\Embarcadero\Studio\Projects\frmStore_u.pas</Transaction>
+    <Transaction>2023/03/23 23:40:25.000.654,C:\Users\Jean Durand\Documents\Embarcadero\Studio\Projects\Unit2.dfm=C:\Users\Jean Durand\Documents\Embarcadero\Studio\Projects\frmStore_u.dfm</Transaction>
+    <Transaction>2023/03/23 23:40:33.000.332,C:\Users\Jean Durand\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\Jean Durand\Documents\Embarcadero\Studio\Projects\frmLogin_u.dfm</Transaction>
+    <Transaction>2023/03/23 23:40:33.000.332,C:\Users\Jean Durand\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\Jean Durand\Documents\Embarcadero\Studio\Projects\frmLogin_u.pas</Transaction>
+    <Transaction>2023/03/23 23:40:43.000.142,C:\Users\Jean Durand\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\Jean Durand\Documents\Embarcadero\Studio\Projects\GUI_p.dproj</Transaction>
+    <Transaction>2023/03/23 23:42:20.228,=D:\Subjects\IT\PAT 2023\GUI\Unit3.pas</Transaction>
+    <Transaction>2023/03/23 23:44:27.400,D:\Subjects\IT\PAT 2023\GUI\frmRegister_u.pas=D:\Subjects\IT\PAT 2023\GUI\Unit3.pas</Transaction>
+    <Transaction>2023/03/23 23:44:27.400,D:\Subjects\IT\PAT 2023\GUI\frmRegister_u.dfm=D:\Subjects\IT\PAT 2023\GUI\Unit3.dfm</Transaction>
+  </Transactions>
+</BorlandProject>
