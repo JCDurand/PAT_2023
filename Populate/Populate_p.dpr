@@ -1,0 +1,16 @@
+program Populate_p;
+
+uses
+  Vcl.Forms,
+  Populate_u in 'Populate_u.pas' {Form1},
+  dmMusic in 'dmMusic.pas' {DataModule1: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TDataModule1, DataModule1);
+  Application.Run;
+end.

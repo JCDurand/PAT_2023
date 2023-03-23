@@ -1,0 +1,25 @@
+unit dmPopulate_u;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, ADODB, DB;
+
+type
+  TdmPopulate = class(TDataModule)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DataModule1: TDataModule1;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

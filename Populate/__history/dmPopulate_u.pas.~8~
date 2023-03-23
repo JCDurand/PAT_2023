@@ -1,0 +1,28 @@
+unit dmPopulate_u;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, ADODB, DB;
+
+type
+  TdmPopulate_u = class(TDataModule)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    conPopulate: TADOConnection;
+    tblCustomer, tblOrders, tblSupplier, tblProduct: TADOTable;
+    dscCustomer, dscOrders, dscSupplier, dscProduct: TDataSource;
+  end;
+
+var
+  DataModule1: TdmPopulate;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.
