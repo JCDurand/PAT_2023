@@ -1,0 +1,34 @@
+unit dmTest_u;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, ADODB, DB;
+
+type
+  TDataModule2 = class(TDataModule)
+    procedure DataModuleCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    conTest: TADOConnection;
+    tblCustomers: TADOTable;
+    dscCustomers: TDataSource;
+  end;
+
+var
+  DataModule2: TDataModule2;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+procedure TDataModule2.DataModuleCreate(Sender: TObject);
+begin
+  conTest := TADOConnection.Create(dmTest);
+end;
+
+end.
