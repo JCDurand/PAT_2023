@@ -3,7 +3,7 @@ program Populate_p;
 uses
   Vcl.Forms,
   Populate_u in 'Populate_u.pas' {Form1},
-  dmPopulate in 'dmPopulate.pas' {DataModule1: TDataModule};
+  dmMusic in 'dmMusic.pas' {DataModule1: TDataModule};
 
 {$R *.res}
 
