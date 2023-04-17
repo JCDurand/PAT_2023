@@ -1,0 +1,40 @@
+unit Populate_u;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, dmTest_u, {dmPopulate,} Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Vcl.StdCtrls;
+
+type
+  TfrmPopulate = class(TForm)
+    Label1: TLabel;
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    lblTest: TLabel;
+  end;
+
+var
+  frmPopulate: TfrmPopulate;
+  dbgCustomers: TDBGrid;
+{  lblTest: TLabel;}
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmPopulate.FormShow(Sender: TObject);
+begin
+  dbgCustomers := TDBGrid.Create(frmPopulate);
+  dbgCustomers.DataSource := dmTest.dscCustomers;
+
+  lblTest.Create(frmPopulate);
+  lblTest.Parent := frmPopulate;
+  lblTest.Caption := 'Hello World!';
+end;
+
+end.

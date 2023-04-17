@@ -5,9 +5,17 @@ object DataModule1: TDataModule1
   object connPAT: TADOConnection
     Connected = True
     ConnectionString = 
-      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Jean Duran' +
-      'd\Nextcloud4\Skool\Parel Vallei\Gr 12\Subjects\IT\PAT_2023\PAT_B' +
-      'ase.mdb;Mode=ReadWrite;Persist Security Info=False'
+      'Provider=Microsoft.Jet.OLEDB.4.0;User ID=Admin;Data Source=C:\Us' +
+      'ers\Jean Durand\Nextcloud4\Skool\Parel Vallei\Gr 12\Subjects\IT\' +
+      'PAT_2023\PAT_Base.mdb;Mode=ReadWrite;Persist Security Info=False' +
+      ';Jet OLEDB:System database="";Jet OLEDB:Registry Path="";Jet OLE' +
+      'DB:Database Password="";Jet OLEDB:Engine Type=5;Jet OLEDB:Databa' +
+      'se Locking Mode=1;Jet OLEDB:Global Partial Bulk Ops=2;Jet OLEDB:' +
+      'Global Bulk Transactions=1;Jet OLEDB:New Database Password="";Je' +
+      't OLEDB:Create System Database=False;Jet OLEDB:Encrypt Database=' +
+      'False;Jet OLEDB:Don'#39't Copy Locale on Compact=False;Jet OLEDB:Com' +
+      'pact Without Replica Repair=False;Jet OLEDB:SFP=False'
+    LoginPrompt = False
     Mode = cmReadWrite
     Provider = 'Microsoft.Jet.OLEDB.4.0'
     Left = 48

@@ -33,12 +33,12 @@ begin
   dscCustomers := TDataSource.Create(dmTest);
 
   conTest.Close;
-  conTest.ConnectionString := 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source = ' + ExtractFilePath(ParamStr(0)) + 'PATBase.mdb' + ';Persist Security Info = False';
+  conTest.ConnectionString := 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source = ' + ExtractFilePath(ParamStr(0)) + 'PAT_Base.mdb' + ';Persist Security Info = False';
   conTest.LoginPrompt := False;
   conTest.Open();
 
   tblCustomers.Connection := conTest;
-  tblCustomers.TableName := 'Customers';
+  tblCustomers.TableName := 'Customer';
 
   dscCustomers.DataSet := tblCustomers;
 

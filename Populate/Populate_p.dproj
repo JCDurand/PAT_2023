@@ -99,7 +99,7 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="Populate_u.pas">
-            <Form>Form1</Form>
+            <Form>frmPopulate</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="dmPopulate.pas">
@@ -107,8 +107,8 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="dmTest.pas">
-            <Form>DataModule2</Form>
+        <DCCReference Include="dmTest_u.pas">
+            <Form>dmTest</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>

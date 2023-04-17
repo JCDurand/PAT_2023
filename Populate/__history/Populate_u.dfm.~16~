@@ -1,0 +1,18 @@
+object frmPopulate: TfrmPopulate
+  Left = 0
+  Top = 0
+  Caption = 'frmPopulate'
+  ClientHeight = 415
+  ClientWidth = 595
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  OldCreateOrder = True
+  OnCreate = FormCreate
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 15
+end
