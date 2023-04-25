@@ -1,7 +1,7 @@
-object Form2: TForm2
+object frmPopulate: TfrmPopulate
   Left = 0
   Top = 0
-  Caption = 'Form2'
+  Caption = 'Populate'
   ClientHeight = 442
   ClientWidth = 628
   Color = clBtnFace
@@ -10,5 +10,15 @@ object Form2: TForm2
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OnShow = FormShow
   TextHeight = 15
+  object btnPopulate: TButton
+    Left = 8
+    Top = 200
+    Width = 113
+    Height = 25
+    Caption = 'Populate Database'
+    TabOrder = 0
+    OnClick = btnPopulateClick
+  end
 end
