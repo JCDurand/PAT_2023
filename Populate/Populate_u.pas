@@ -9,9 +9,9 @@ uses
 
 type
   TfrmPopulate = class(TForm)
-    Button1: TButton;
+    btnPopulate: TButton;
     procedure FormShow(Sender: TObject);
-    procedure Button1Click(Sender: TObject);
+    procedure btnPopulateClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -27,11 +27,15 @@ implementation
 
 {$R *.dfm}
 
-procedure TfrmPopulate.Button1Click(Sender: TObject);
+procedure TfrmPopulate.btnPopulateClick(Sender: TObject);
 begin
-  lblTest := TLabel.Create(frmPopulate);
-  lblTest.Parent := frmPopulate;
-  lblTest.Caption := 'Hello World!';
+  with dmTest do
+    begin
+      tblCustomers.Last;
+      tblCustomers.Insert;
+    end;
+
+
 end;
 
 procedure TfrmPopulate.FormShow(Sender: TObject);
