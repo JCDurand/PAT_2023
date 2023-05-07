@@ -7,8 +7,9 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, dmTest_u, frmPopulate_u, Vcl.StdCtrls;
 
 type
-  TfrmPAT = class(TForm)
+  TfrmMain = class(TForm)
     btnPopulate: TButton;
+    procedure btnPopulateClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -16,10 +17,16 @@ type
   end;
 
 var
-  frmPAT: TfrmPAT;
+  frmMain: TfrmMain;
 
 implementation
 
 {$R *.dfm}
+
+procedure TfrmMain.btnPopulateClick(Sender: TObject);
+begin
+frmMain.Hide;
+frmPopulate.Show;
+end;
 
 end.
