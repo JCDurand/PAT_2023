@@ -28,14 +28,37 @@ implementation
 {$R *.dfm}
 
 procedure TfrmPopulate.btnPopulateClick(Sender: TObject);
+var
+  arrNames: Array[1..15] of String;
+  tFile: TextFile;
+  sLine: String;
+  iCount: Integer;
 begin
+  iCount := 1;
+
+  if NOT FileExists('Names.txt') then
+    begin
+      ShowMessage('Text file does not exist.');
+      Exit;
+    end;  //IF
+
+  AssignFile(tFile, 'Names.txt');
+  Reset(tFile);
+  while NOT Eof(tFile) do
+    begin
+      Readln(tFile, sLine);
+      arrNames[iCount] := sLine;
+      Inc(iCount);
+    end;  //WHILE
+  CloseFile(tFile);
+
   with dmTest do
     begin
       tblCustomers.Last;
       tblCustomers.Insert;
-
-
     end;
+
+
 end;
 
 procedure TfrmPopulate.FormShow(Sender: TObject);
@@ -55,7 +78,7 @@ begin
   Randomize;
   iRand := RandomRange(1, 1000);
 
-  Result := UpCase(sName[1]) + sSurname + IntToStr(iRand);;
+  Result := UpCase(sName[1]) + sSurname + IntToStr(iRand);
 end;
 
 end.

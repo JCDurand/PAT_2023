@@ -28,7 +28,11 @@ implementation
 {$R *.dfm}
 
 procedure TfrmPopulate.btnPopulateClick(Sender: TObject);
+var
+  arrNames: Array[1..15] of String;
 begin
+
+
   with dmTest do
     begin
       tblCustomers.Last;
@@ -52,7 +56,10 @@ function TfrmPopulate.generateCode(sName, sSurname: String): String;
 var
   iRand: Integer;
 begin
-  iRand :=
+  Randomize;
+  iRand := RandomRange(1, 1000);
+
+  Result := UpCase(sName[1]) + sSurname + IntToStr(iRand);
 end;
 
 end.
