@@ -10,9 +10,7 @@ object frmPopulate: TfrmPopulate
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
-  OldCreateOrder = True
   OnShow = FormShow
-  PixelsPerInch = 96
   TextHeight = 15
   object btnPopulate: TButton
     Left = 240

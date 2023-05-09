@@ -111,6 +111,7 @@
             <Form>frmPopulate</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="clsCustomer_u.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

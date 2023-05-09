@@ -8,8 +8,8 @@ uses
 
 type
   TfrmMain = class(TForm)
-    btnPopulate: TButton;
-    procedure btnPopulateClick(Sender: TObject);
+    btnShowFrom: TButton;
+    procedure btnShowFromClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -23,7 +23,7 @@ implementation
 
 {$R *.dfm}
 
-procedure TfrmMain.btnPopulateClick(Sender: TObject);
+procedure TfrmMain.btnShowFromClick(Sender: TObject);
 begin
 frmMain.Hide;
 frmPopulate.Show;

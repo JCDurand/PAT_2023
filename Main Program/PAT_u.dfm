@@ -10,16 +10,14 @@ object frmMain: TfrmMain
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
-  OldCreateOrder = True
-  PixelsPerInch = 96
   TextHeight = 15
-  object btnPopulate: TButton
-    Left = 256
-    Top = 232
-    Width = 99
+  object btnShowFrom: TButton
+    Left = 280
+    Top = 224
+    Width = 113
     Height = 25
-    Caption = 'Populate Form'
+    Caption = 'Show Populate From'
     TabOrder = 0
-    OnClick = btnPopulateClick
+    OnClick = btnShowFromClick
   end
 end

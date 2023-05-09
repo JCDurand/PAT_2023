@@ -23,6 +23,10 @@ type
 
 var
   frmPopulate: TfrmPopulate;
+  arrText: Array of String;
+
+const
+  ARRLENG = 15;
 
 implementation
 
@@ -85,13 +89,14 @@ var
   tFile: TextFile;
   iCount: Integer;
   sLine: String;
+  arrFile: Array[1..15] of String;
 begin
   iCount := 1;
   Result := '';
 
   if NOT FileExists(sTextName) then
     begin
-      ShowMessage('File does not exits.');
+      ShowMessage('File does not exist.');
       Exit;
     end;
 
@@ -105,6 +110,9 @@ begin
     end;
 
   CloseFile(tFile);
+
+  SetLength(arrText, 15);
+
 end;
 
 end.
