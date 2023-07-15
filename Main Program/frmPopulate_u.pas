@@ -9,11 +9,13 @@ uses
 
 type
   TfrmPopulate = class(TForm)
-    btnPopulate: TButton;
+    btnCusPop: TButton;
+    btnSupPop: TButton;
+    btnProdPop: TButton;
     procedure FormShow(Sender: TObject);
-    procedure btnPopulateClick(Sender: TObject);
-    function readTextfile(sTextName: String; iArrLeng: Integer): String;
-    function generateCode(sName, sSurname: String): String;
+    procedure btnCusPopClick(Sender: TObject);
+    procedure readTextFile(sFileName: String; iArrNum: Integer);   //reads text files into arrays
+    function generateCode(sName, sSurname: String): String; //generate unique Customer ID code
   private
     { Private declarations }
   public
@@ -23,6 +25,8 @@ type
 
 var
   frmPopulate: TfrmPopulate;
+  arrCode, arrAddress, arrBank, arrCard, arrCity, arrCountry, arrEmail, arrName, arrPayment,
+  arrPhone, arrPost, arrSurname: Array[1..15] of String;
   arrText: Array of String;
 
 const
@@ -32,23 +36,9 @@ implementation
 
 {$R *.dfm}
 
-procedure TfrmPopulate.btnPopulateClick(Sender: TObject);
-var
-  arrNames: Array[1..15] of String;
-  sLine: String;
-  iCount, iPos: Integer;
-  I: Integer;
+procedure TfrmPopulate.btnCusPopClick(Sender: TObject);
 begin
-  iCount := 1;
 
-  sLine := readTextfile('Names.txt', 15);
-
-  for I := 1 to 15 do
-    begin
-      iPos := Pos('#', sLine);
-      arrNames[I] := Copy(sLine, 1, iPos-1);
-      Delete(sLine, 1, iPos);
-    end;
 
   with dmTest do
     begin
@@ -83,36 +73,44 @@ end;
 
 
 
-function TfrmPopulate.readTextfile(sTextName: String;
-  iArrLeng: Integer): String;
-var
-  tFile: TextFile;
-  iCount: Integer;
-  sLine: String;
-  arrFile: Array[1..15] of String;
-begin
-  iCount := 1;
-  Result := '';
 
-  if NOT FileExists(sTextName) then
+
+procedure TfrmPopulate.readTextFile(sFileName: String; iArrNum: Integer);
+var
+  sLine: String;
+  tFile: TextFile;
+  I: Integer;
+begin
+  if NOT FileExists(sFileName) then
     begin
       ShowMessage('File does not exist.');
       Exit;
     end;
 
-  AssignFile(tFile, sTextName);
+  AssignFile(tFile, sFileName);
   Reset(tFile);
 
-  while NOT Eof(tFile) do
+  for I := 1 to 15 do
     begin
-      Readln(tFile, sLine);
-      Result := Result + '#' + sLine;
-    end;
+      Readln(tFile,sLine);
+
+      case iArrNum of
+        2: arrAddress[I] := sLine;
+        3: arrBank[I] := sLine;
+        4: arrCard[I] := sLine;
+        5: arrCity[I] := sLine;
+        6: arrCountry[I] := sLine;
+        7: arrEmail[I] := sLine;
+        8: arrName[I] := sLine;
+        9: arrPayment[I] := sLine;
+        10: arrPhone[I] := sLine;
+        11: arrPost[I] := sLine;
+        12: arrSurname[I] := sLine;
+      end;  //CASE
+
+    end;  //FOR
 
   CloseFile(tFile);
-
-  SetLength(arrText, 15);
-
 end;
 
 end.
