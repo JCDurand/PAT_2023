@@ -56,14 +56,16 @@ begin
 //populate customer table
   with dmTest do
     begin
-      tblCustomers.Last;
-      tblCustomers.Insert;
+
     end;
 
   for I := 1 to 15 do
     begin
       with dmTest do
         begin
+          tblCustomers.Last;
+          tblCustomers.Insert;
+
           tblCustomers['CID'] := generateCode(arrName[I], arrSurname[I]);
           tblCustomers['CFirstname'] := arrName[I];
           tblCustomers['CLastName'] := arrSurname[I];
@@ -77,12 +79,13 @@ begin
           tblCustomers['CCardNum'] := arrCard[I];
           tblCustomers['CBankAccountNum'] := arrBank[I];
 
-          tblCustomers.Next
+          dmTest.tblCustomers.Post;
+
         end;//WITH
 
     end;  //FOR
 
-  dmTest.tblCustomers.Post;
+
 
 end;
 
