@@ -37,17 +37,52 @@ implementation
 {$R *.dfm}
 
 procedure TfrmPopulate.btnCusPopClick(Sender: TObject);
+var
+  I: Integer;
 begin
+//populate arrays
+  readTextFile('Address.txt', 2);
+  readTextFile('Bank.txt', 3);
+  readTextFile('Card.txt', 4);
+  readTextFile('City.txt', 5);
+  readTextFile('Country.txt', 6);
+  readTextFile('Email.txt', 7);
+  readTextFile('Name.txt', 8);
+  readTextFile('Payment.txt', 9);
+  readTextFile('Phone.txt', 10);
+  readTextFile('Post_Code.txt', 11);
+  readTextFile('Surname.txt', 12);
 
-
+//populate customer table
   with dmTest do
     begin
       tblCustomers.Last;
       tblCustomers.Insert;
-
-
     end;
 
+  for I := 1 to 15 do
+    begin
+      with dmTest do
+        begin
+          tblCustomers['CID'] := generateCode(arrName[I], arrSurname[I]);
+          tblCustomers['CFirstname'] := arrName[I];
+          tblCustomers['CLastName'] := arrSurname[I];
+          tblCustomers['CPhoneNum'] := arrPhone[I];
+          tblCustomers['CEmail'] := arrEmail[I];
+          tblCustomers['CAddress'] := arrAddress[I];
+          tblCustomers['CCity'] := arrCity[I];
+          tblCustomers['CPost'] := arrPost[I];
+          tblCustomers['CCountry'] := arrCountry[I];
+          tblCustomers['CPayMethod'] := arrPayment[I];
+          tblCustomers['CCardNum'] := arrCard[I];
+          tblCustomers['CBankAccountNum'] := arrBank[I];
+
+          tblCustomers.Next
+        end;//WITH
+
+    end;  //FOR
+
+  dmTest.tblCustomers.Post;
 
 end;
 
