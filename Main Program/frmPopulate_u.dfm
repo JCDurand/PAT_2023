@@ -2,8 +2,8 @@ object frmPopulate: TfrmPopulate
   Left = 0
   Top = 0
   Caption = 'Populate'
-  ClientHeight = 441
-  ClientWidth = 624
+  ClientHeight = 440
+  ClientWidth = 620
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,22 +21,22 @@ object frmPopulate: TfrmPopulate
     TabOrder = 0
     OnClick = btnCusPopClick
   end
-  object btnSupPop: TButton
-    Left = 232
+  object btnProPop: TButton
+    Left = 240
     Top = 208
-    Width = 153
+    Width = 137
     Height = 25
-    Caption = 'Populate Supplier Database'
+    Caption = 'Populate Product table'
     TabOrder = 1
-    OnClick = btnCusPopClick
+    OnClick = btnProPopClick
   end
-  object btnProdPop: TButton
-    Left = 463
+  object btnSupPop: TButton
+    Left = 472
     Top = 208
-    Width = 153
+    Width = 128
     Height = 25
-    Caption = 'Populate product database'
+    Caption = 'Populate Supplier table'
     TabOrder = 2
-    OnClick = btnCusPopClick
+    OnClick = btnSupPopClick
   end
 end

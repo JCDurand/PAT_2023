@@ -1,5 +1,4 @@
 unit frmPopulate_u;
-
 interface
 
 uses
@@ -10,12 +9,14 @@ uses
 type
   TfrmPopulate = class(TForm)
     btnCusPop: TButton;
+    btnProPop: TButton;
     btnSupPop: TButton;
-    btnProdPop: TButton;
     procedure FormShow(Sender: TObject);
     procedure btnCusPopClick(Sender: TObject);
     procedure readTextFile(sFileName: String; iArrNum: Integer);   //reads text files into arrays
-    function generateCode(sName, sSurname: String): String; //generate unique Customer ID code
+    function generateCode(sName, sSurname: String): String;
+    procedure btnProPopClick(Sender: TObject);
+    procedure btnSupPopClick(Sender: TObject); //generate unique Customer ID code
   private
     { Private declarations }
   public
@@ -27,6 +28,7 @@ var
   frmPopulate: TfrmPopulate;
   arrCode, arrAddress, arrBank, arrCard, arrCity, arrCountry, arrEmail, arrName, arrPayment,
   arrPhone, arrPost, arrSurname: Array[1..15] of String;
+  arr1, arr2, arr3, arr4, arr5, arr6: Array[1..15] of String; //general arrays for readTextFile
   arrText: Array of String;
 
 const
@@ -86,6 +88,44 @@ begin
     end;  //FOR
 
 
+
+end;
+
+procedure TfrmPopulate.btnProPopClick(Sender: TObject);
+var
+  I: Integer;
+begin
+
+end;
+
+procedure TfrmPopulate.btnSupPopClick(Sender: TObject);
+var
+  I: Integer;
+begin
+  readTextFile('SupCompany.txt',2);
+  readTextFile('SupSurname.txt',3);
+  readTextFile('SupName.txt',4);
+  readTextFile('SupEmail.txt',5);
+  readTextFile('SupPhone.txt',6);
+
+  for I := 1 to 7 do
+  begin
+  with dmTest do
+    begin
+      tblSupplier.Last;
+      tblSupplier.Insert;
+
+      tblSupplier['SID'] := generateCode(arrCard[I], arrBank[I]);
+      tblSupplier['SCompany'] := arrAddress[I];;
+      tblSupplier['SLastName'] := arrBank[I];
+      tblSupplier['SFIrstName'] := arrCard[I];
+      tblSupplier['SEmail'] := arrCity[I];
+      tblSupplier['SPhoneNum'] := arrCountry[I];
+
+      tblSupplier.Post;
+    end;  //WITH
+
+  end;  //FOR
 
 end;
 
