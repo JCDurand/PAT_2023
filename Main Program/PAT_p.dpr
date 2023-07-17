@@ -6,7 +6,8 @@ uses
   dmTest_u in '..\Populate\dmTest_u.pas' {dmTest: TDataModule},
   frmPopulate_u in 'frmPopulate_u.pas' {frmPopulate},
   clsCustomer_u in 'clsCustomer_u.pas',
-  clsProduct_u in 'clsProduct_u.pas';
+  clsProduct_u in 'clsProduct_u.pas',
+  clsSupplier_u in 'clsSupplier_u.pas';
 
 {$R *.res}
 
