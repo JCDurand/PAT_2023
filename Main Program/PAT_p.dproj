@@ -98,7 +98,7 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="PAT_u.pas">
+        <DCCReference Include="frmMain_u.pas">
             <Form>frmPAT</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -114,6 +114,10 @@
         <DCCReference Include="clsCustomer_u.pas"/>
         <DCCReference Include="clsProduct_u.pas"/>
         <DCCReference Include="clsSupplier_u.pas"/>
+        <DCCReference Include="frmWelcome_u.pas">
+            <Form>frmWelcome</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
