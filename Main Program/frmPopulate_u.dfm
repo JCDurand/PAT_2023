@@ -2,8 +2,8 @@ object frmPopulate: TfrmPopulate
   Left = 0
   Top = 0
   Caption = 'Populate'
-  ClientHeight = 440
-  ClientWidth = 620
+  ClientHeight = 439
+  ClientWidth = 616
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -22,7 +22,7 @@ object frmPopulate: TfrmPopulate
     OnClick = btnCusPopClick
   end
   object btnProPop: TButton
-    Left = 240
+    Left = 448
     Top = 208
     Width = 137
     Height = 25
@@ -31,7 +31,7 @@ object frmPopulate: TfrmPopulate
     OnClick = btnProPopClick
   end
   object btnSupPop: TButton
-    Left = 472
+    Left = 240
     Top = 208
     Width = 128
     Height = 25

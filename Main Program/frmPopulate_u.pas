@@ -95,7 +95,7 @@ procedure TfrmPopulate.btnProPopClick(Sender: TObject);
 var
   I: Integer;
 begin
-
+  readTextFile('',);
 end;
 
 procedure TfrmPopulate.btnSupPopClick(Sender: TObject);
@@ -108,7 +108,7 @@ begin
   readTextFile('SupEmail.txt',5);
   readTextFile('SupPhone.txt',6);
 
-  for I := 1 to 7 do
+  for I := 1 to 15 do
   begin
   with dmTest do
     begin
