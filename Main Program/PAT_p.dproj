@@ -118,6 +118,10 @@
             <Form>frmWelcome</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="frmRegister_u.pas">
+            <Form>frmRegister</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
