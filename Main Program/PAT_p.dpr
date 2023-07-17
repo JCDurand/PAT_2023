@@ -5,7 +5,8 @@ uses
   PAT_u in 'PAT_u.pas' {frmPAT},
   dmTest_u in '..\Populate\dmTest_u.pas' {dmTest: TDataModule},
   frmPopulate_u in 'frmPopulate_u.pas' {frmPopulate},
-  clsCustomer_u in 'clsCustomer_u.pas';
+  clsCustomer_u in 'clsCustomer_u.pas',
+  clsProduct_u in 'clsProduct_u.pas';
 
 {$R *.res}
 

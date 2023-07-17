@@ -94,8 +94,37 @@ end;
 procedure TfrmPopulate.btnProPopClick(Sender: TObject);
 var
   I: Integer;
+  sCode: String;
 begin
-  readTextFile('',);
+//populate text files
+  readTextFile('ProdName.txt', 2);
+  readTextFile('ProdDescrip.txt', 3);
+  readTextFile('ProdCat.txt', 4);
+  readTextFile('ProdNum.txt', 5);
+  readTextFile('ProdCost.txt', 6);
+
+//populate table
+
+  for I := 1 to 15 do
+    begin
+      sCode := Copy(arrAddress[I], 1, 3) + Copy(arrCard[I], 1, 3) + IntToStr(RandomRange(1,999));
+
+      with dmTest do
+        begin
+          tblProduct.Last;
+          tblProduct.Insert;
+
+          tblProduct['PID'] := sCode;
+          tblProduct['PName'] := arrAddress[I];
+          tblProduct['PDescript'] := arrBank[I];
+          tblProduct['PCat'] := arrCard[I];
+          tblProduct['PAmount'] := StrToInt(arrCity[I]);
+          tblProduct['PCost'] := StrToFloat(arrCountry[I]);
+
+          tblProduct.Post;
+        end;  //WITH
+
+    end;  //FOR
 end;
 
 procedure TfrmPopulate.btnSupPopClick(Sender: TObject);
