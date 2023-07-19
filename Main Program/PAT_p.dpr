@@ -9,7 +9,9 @@ uses
   clsProduct_u in 'clsProduct_u.pas',
   clsSupplier_u in 'clsSupplier_u.pas',
   frmWelcome_u in 'frmWelcome_u.pas' {frmWelcome},
-  frmRegister_u in 'frmRegister_u.pas' {frmRegister};
+  frmRegister_u in 'frmRegister_u.pas' {frmRegister},
+  frmCustomer_u in 'frmCustomer_u.pas' {frmCustomer},
+  frmSupplier_u in 'frmSupplier_u.pas' {frmSupplier};
 
 {$R *.res}
 
@@ -21,5 +23,7 @@ begin
   Application.CreateForm(TfrmPopulate, frmPopulate);
   Application.CreateForm(TfrmWelcome, frmWelcome);
   Application.CreateForm(TfrmRegister, frmRegister);
+  Application.CreateForm(TfrmCustomer, frmCustomer);
+  Application.CreateForm(TfrmSupplier, frmSupplier);
   Application.Run;
 end.

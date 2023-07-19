@@ -9,13 +9,13 @@ type
 
   var
     fCID, fFirstName, fLastName, fPhoneNum, fEmail, fAddress, fCity, fPost,
-    fCountry, fPayMethod, fCardNum, fBankNum: String;
+    fCountry, fPayMethod, fCardNum, fBankNum, fPassword: String;
 
 
   public
-    arrCustomer, arrSupplier: Array of TObject;
+
     Constructor Create(sCID, sFirstName, sLastName, sPhoneNum, sEmail, sAddress, sCity, sPost,
-                       sCountry, sPayMethod, sCardNum, sBankNum: String);
+                       sCountry, sPayMethod, sCardNum, sBankNum, sPassword: String);
 
 end;
 
@@ -25,7 +25,7 @@ implementation
 { TCustomer }
 
 constructor TCustomer.Create(sCID, sFirstName, sLastName, sPhoneNum, sEmail,
-  sAddress, sCity, sPost, sCountry, sPayMethod, sCardNum, sBankNum: String);
+  sAddress, sCity, sPost, sCountry, sPayMethod, sCardNum, sBankNum, sPassword: String);
 begin
   fCID := sCID;
   fFirstName := sFirstName;
@@ -39,6 +39,7 @@ begin
   fPayMethod := sPayMethod;
   fCardNum := sCardNum;
   fBankNum := sBankNum;
+  fPassword := sPassword
 end;
 
 end.

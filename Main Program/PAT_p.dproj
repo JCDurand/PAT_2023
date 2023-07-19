@@ -122,6 +122,14 @@
             <Form>frmRegister</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="frmCustomer_u.pas">
+            <Form>frmCustomer</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="frmSupplier_u.pas">
+            <Form>frmSupplier</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
