@@ -11,7 +11,9 @@ type
     fCID, fFirstName, fLastName, fPhoneNum, fEmail, fAddress, fCity, fPost,
     fCountry, fPayMethod, fCardNum, fBankNum: String;
 
+
   public
+    arrCustomer: Array of TObject;
     Constructor Create(sCID, sFirstName, sLastName, sPhoneNum, sEmail, sAddress, sCity, sPost,
                        sCountry, sPayMethod, sCardNum, sBankNum: String);
 
