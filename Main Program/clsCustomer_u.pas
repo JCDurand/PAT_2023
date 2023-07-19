@@ -13,7 +13,7 @@ type
 
 
   public
-    arrCustomer: Array of TObject;
+    arrCustomer, arrSupplier: Array of TObject;
     Constructor Create(sCID, sFirstName, sLastName, sPhoneNum, sEmail, sAddress, sCity, sPost,
                        sCountry, sPayMethod, sCardNum, sBankNum: String);
 
