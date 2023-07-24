@@ -12,6 +12,7 @@ type
   TfrmCustomer = class(TForm)
     procedure FormCreate(Sender: TObject);
     procedure increaseArraySize;
+    procedure addCustomer(objCustomer: TCustomer);
   private
     { Private declarations }
   public
@@ -26,6 +27,11 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TfrmCustomer.addCustomer(objCustomer: TCustomer);
+begin
+  frmCustomer.arrCustomer[frmCustomer.iCusCount -1] := objCustomer;
+end;
 
 procedure TfrmCustomer.FormCreate(Sender: TObject); //loads customer objects into arrCustomer
 var

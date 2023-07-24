@@ -1,43 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>1899/12/30 00:00:00.000.025,D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\PAT_u.dfm=D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmLoad_u.dfm</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.306,D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.pas=D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\clsProduct_u.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.294,=\\srvst\students-data$\IT12-WVR\JeandIT12\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.077,\\srvst\students-data$\IT12-WVR\JeandIT12\Embarcadero\Studio\Projects\Unit1.pas=E:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\PAT_u.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.803,=E:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit2.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.011,=E:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Populate\dmTest_u.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.495,D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmMain_u.pas=D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmLoad_u.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.025,D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmLoad_u.pas=D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\PAT_u.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.025,D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmLoad_u.dfm=D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\PAT_u.dfm</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.236,\\srvst\students-data$\IT12-WVR\JeandIT12\Embarcadero\Studio\Projects\Project1.dproj=E:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\PAT_p.dproj</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.306,D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\clsProduct_u.pas=D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.077,\\srvst\students-data$\IT12-WVR\JeandIT12\Embarcadero\Studio\Projects\Unit1.dfm=E:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\PAT_u.dfm</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.211,D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmRegister_u.dfm=D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.dfm</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.978,F:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.dfm=F:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmSupplier_u.dfm</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.553,F:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.dfm=F:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmCustomer_u.dfm</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.863,=\\srvst\students-data$\IT12-WVR\JeandIT12\Embarcadero\Studio\Projects\FormUnit1.pas</Transaction>
     <Transaction>1899/12/30 00:00:00.000.841,=D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.pas</Transaction>
     <Transaction>1899/12/30 00:00:00.000.527,=D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.011,=E:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Populate\dmTest_u.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.025,D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\PAT_u.pas=D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmLoad_u.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.978,F:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmSupplier_u.dfm=F:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.dfm</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.803,=E:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit2.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.520,E:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit2.pas=E:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmPopulate_u.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.077,E:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\PAT_u.dfm=\\srvst\students-data$\IT12-WVR\JeandIT12\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.863,=\\srvst\students-data$\IT12-WVR\JeandIT12\Embarcadero\Studio\Projects\FormUnit1.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.458,F:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\libCustomer_u.pas=F:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.640,F:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\libCustomer_u.pas=</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.802,D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.pas=D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmWelcome_u.pas</Transaction>
     <Transaction>1899/12/30 00:00:00.000.379,=D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.pas</Transaction>
     <Transaction>1899/12/30 00:00:00.000.592,=D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.859,D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.pas=D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\clsSupplier_u.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.211,D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.pas=D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmRegister_u.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.294,=\\srvst\students-data$\IT12-WVR\JeandIT12\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.846,E:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\clsTFile_u.pas=E:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.pas</Transaction>
     <Transaction>1899/12/30 00:00:00.000.972,=F:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.pas</Transaction>
     <Transaction>1899/12/30 00:00:00.000.442,=F:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.pas</Transaction>
     <Transaction>1899/12/30 00:00:00.000.117,=F:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.553,F:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmCustomer_u.pas=F:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.553,F:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmCustomer_u.dfm=F:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.dfm</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.553,F:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.pas=F:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmCustomer_u.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.458,F:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.pas=F:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\libCustomer_u.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.520,E:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmPopulate_u.pas=E:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit2.pas</Transaction>
     <Transaction>1899/12/30 00:00:00.000.900,=E:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\clsCustomer_u.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.978,F:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmSupplier_u.pas=F:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.495,D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmMain_u.dfm=D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmLoad_u.dfm</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.802,D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmWelcome_u.dfm=D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.dfm</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.859,D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\clsSupplier_u.pas=D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.211,D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmRegister_u.pas=D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.520,E:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmPopulate_u.dfm=E:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit2.dfm</Transaction>
     <Transaction>1899/12/30 00:00:00.000.403,=\\srvst\students-data$\IT12-WVR\JeandIT12\Embarcadero\Studio\Projects\WebModuleUnit1.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.520,E:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit2.dfm=E:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmPopulate_u.dfm</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.236,E:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\PAT_p.dproj=\\srvst\students-data$\IT12-WVR\JeandIT12\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.846,E:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.pas=E:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\clsTFile_u.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.640,F:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\libCustomer_u.pas=</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.978,F:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.pas=F:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmSupplier_u.pas</Transaction>
     <Transaction>1899/12/30 00:00:00.000.991,=E:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.pas</Transaction>
     <Transaction>1899/12/30 00:00:00.000.663,=E:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.495,D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmLoad_u.dfm=D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmMain_u.dfm</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.495,D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmLoad_u.pas=D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmMain_u.pas</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.211,D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.dfm=D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmRegister_u.dfm</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.802,D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.dfm=D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmWelcome_u.dfm</Transaction>
-    <Transaction>1899/12/30 00:00:00.000.077,E:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\PAT_u.pas=\\srvst\students-data$\IT12-WVR\JeandIT12\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899/12/30 00:00:00.000.802,D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\frmWelcome_u.pas=D:\Parel Vallei\Graad 12\Subjects\IT\PAT_2023\Main Program\Unit1.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="..\..\PAT_2023"/>
@@ -48,16 +48,11 @@
     <File Path="clsProduct_u.pas"/>
     <File Path="clsCustomer_u.pas"/>
     <File Path="frmMain_u.pas"/>
-    <File Path="frmMain_u.dfm"/>
     <File Path="frmWelcome_u.pas"/>
-    <File Path="frmWelcome_u.dfm"/>
     <File Path="frmSupplier_u.pas"/>
-    <File Path="frmSupplier_u.dfm"/>
     <File Path="frmRegister_u.pas"/>
-    <File Path="frmRegister_u.dfm"/>
     <File Path="frmPopulate_u.pas"/>
     <File Path="frmPopulate_u.dfm"/>
     <File Path="frmCustomer_u.pas"/>
-    <File Path="frmCustomer_u.dfm"/>
   </ProjectSortOrder>
 </BorlandProject>

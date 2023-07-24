@@ -14,9 +14,9 @@ type
     procedure FormShow(Sender: TObject);
     procedure btnCusPopClick(Sender: TObject);
     procedure readTextFile(sFileName: String; iArrNum: Integer);   //reads text files into arrays
-    function generateCode(sName, sSurname: String): String;
+    function generateCode(sName, sSurname: String): String; //generate unique Customer ID code
     procedure btnProPopClick(Sender: TObject);
-    procedure btnSupPopClick(Sender: TObject); //generate unique Customer ID code
+    procedure btnSupPopClick(Sender: TObject);
   private
     { Private declarations }
   public
