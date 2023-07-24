@@ -1,0 +1,83 @@
+unit frmWelcome_u;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.Mask, Vcl.ExtCtrls,
+  JPEG, frmRegister_u, dmTest_u, frmCustomer_u, frmSupplier_u , clsSupplier_u;
+
+type
+  TfrmWelcome = class(TForm)
+    pnlWelcome: TPanel;
+    lblLogin: TLabel;
+    lblRegister: TLabel;
+    ledUsername: TLabeledEdit;
+    ledPass: TLabeledEdit;
+    bitbtnLogin: TBitBtn;
+    bitbtnClose: TBitBtn;
+    btnRegister: TButton;
+    imgBack: TImage;
+    imgTree: TImage;
+    procedure btnRegisterClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    iCusCount, iSupCount: Integer;  //global counter for customers and suppliers in database
+
+  end;
+
+var
+  frmWelcome: TfrmWelcome;
+
+implementation
+
+  uses
+    clsCustomer_u;
+
+{$R *.dfm}
+
+procedure TfrmWelcome.btnRegisterClick(Sender: TObject);
+begin
+  frmWelcome.Hide;
+  frmRegister.Show;
+end;
+
+procedure TfrmWelcome.FormShow(Sender: TObject);
+begin
+  imgBack.Stretch := True;
+  imgBack.Picture.LoadFromFile('Background.jpg');
+
+  imgTree.Stretch := True;
+  imgTree.Picture.LoadFromFile('Tree.jpg'); //load images for background
+
+  iCusCount := 0;
+  iSupCount := 0;
+
+  with dmTest do
+    begin
+      tblCustomers.First;
+      while NOT tblCustomers.Eof do
+        begin
+          Inc(iCusCount);
+          tblCustomers.Next;
+        end;  //WHILE
+
+      tblSupplier.First;
+      while NOT tblSupplier.Eof do
+        begin
+          Inc(iSupCount);
+          tblSupplier.Next;
+        end;
+    end;  //WITH
+
+  SetLength(frmCustomer.arrCustomer, iCusCount);
+  SetLength(frmSupplier.arrSupplier, iSupCount);  //initializes dynamic arrays
+
+
+  ShowMessage('Customer: ' +IntToStr(iCusCount) + 'Supplier: ' + IntToStr(iSupCount));
+end;
+
+end.

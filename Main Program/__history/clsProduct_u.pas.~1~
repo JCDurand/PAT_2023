@@ -1,0 +1,26 @@
+unit clsProduct_u;
+
+interface
+
+type
+  TProduct = class(TObject)
+
+  private
+  fName, fCat: String;
+  fAmount: Integer;
+  fCost: Real;
+
+  public
+
+  constructor Create(sName, sCat: String; iAmount: Integer; rCost: Real);
+  function getName: String;
+  function getCat: String;
+  function getAmount: Integer;
+  function getCost: String;
+  procedure setAmount;
+  procedure setCost;
+  end;
+
+implementation
+
+end.
