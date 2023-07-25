@@ -75,7 +75,31 @@ begin
   frmCustomer.increaseArraySize;
 
   objCustomer := TCustomer.Create(frmPopulate.generateCode(ledName.Text, ledSurname.Text),
-  ledName.Text, ledSurname.Text, ledp)
+  ledName.Text, ledSurname.Text, ledPhone.Text, ledEmail.Text, ledAddress.Text, ledCity.Text,
+  ledPost.Text, cmbCountry.Items[cmbCountry.ItemIndex], rgpPayment.Items[rgpPayment.ItemIndex],
+  ledCard.Text, ledBank.Text, ledPWConf.Text);
+
+  with dmTest do begin
+    tblCustomers.Last;
+    tblCustomers.Insert;
+
+    tblCustomers['CID'] := generateCode(arrName[I], arrSurname[I]);
+    tblCustomers['CFirstname'] := arrName[I];
+    tblCustomers['CLastName'] := arrSurname[I];
+    tblCustomers['CPhoneNum'] := arrPhone[I];
+    tblCustomers['CEmail'] := arrEmail[I];
+    tblCustomers['CAddress'] := arrAddress[I];
+    tblCustomers['CCity'] := arrCity[I];
+    tblCustomers['CPost'] := arrPost[I];
+    tblCustomers['CCountry'] := arrCountry[I];
+    tblCustomers['CPayMethod'] := arrPayment[I];
+    tblCustomers['CCardNum'] := arrCard[I];
+    tblCustomers['CBankAccountNum'] := arrBank[I];
+
+          dmTest.tblCustomers.Post;
+  end;
+
+  frmCustomer.arrCustomer[frmCustomer.iCusCount -1] := objCustomer;
 end;
 
 procedure TfrmRegister.cmbCountryExit(Sender: TObject);
@@ -293,12 +317,11 @@ begin
       ShowMessage('Please enter a phone number.');
       ledPhone.SetFocus;
     end
-  else
+  else if Length(sText) > 12 then
     begin
-      for I := 1 to Length(sText) do
-        begin
-
-        end;
+      ShowMessage('Phone number may not exceed 12 characters.');
+      ledPhone.Clear;
+      ledPhone.SetFocus;
     end;
 
 end;

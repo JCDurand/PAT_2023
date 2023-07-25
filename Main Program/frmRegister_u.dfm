@@ -14,7 +14,7 @@ object frmRegister: TfrmRegister
   TextHeight = 19
   object imgBack: TImage
     Left = -8
-    Top = 0
+    Top = 8
     Width = 593
     Height = 449
   end
@@ -194,6 +194,7 @@ object frmRegister: TfrmRegister
     EditLabel.Height = 19
     EditLabel.Caption = 'Please enter a password:'
     ParentShowHint = False
+    PasswordChar = '*'
     ShowHint = True
     TabOrder = 9
     Text = ''
@@ -207,6 +208,7 @@ object frmRegister: TfrmRegister
     EditLabel.Width = 176
     EditLabel.Height = 19
     EditLabel.Caption = 'Please confirm the password:'
+    PasswordChar = '*'
     TabOrder = 10
     Text = ''
     OnExit = ledPassConfExit

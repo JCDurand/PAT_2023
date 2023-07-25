@@ -72,7 +72,7 @@ object frmRegister: TfrmRegister
   end
   object ledEmail: TLabeledEdit
     Left = 8
-    Top = 201
+    Top = 257
     Width = 121
     Height = 27
     EditLabel.Width = 87
@@ -114,6 +114,7 @@ object frmRegister: TfrmRegister
     EditLabel.Width = 68
     EditLabel.Height = 19
     EditLabel.Caption = 'Post Code:'
+    NumbersOnly = True
     TabOrder = 6
     Text = ''
     OnExit = ledPostExit
@@ -123,6 +124,7 @@ object frmRegister: TfrmRegister
     Top = 88
     Width = 145
     Height = 27
+    Sorted = True
     TabOrder = 7
     OnExit = cmbCountryExit
     Items.Strings = (
@@ -185,11 +187,18 @@ object frmRegister: TfrmRegister
     Top = 336
     Width = 193
     Height = 27
+    Hint = 
+      'Must contain at least two numbers, a special character(!,#,$,%,&' +
+      ') and two capital letters.'
     EditLabel.Width = 150
     EditLabel.Height = 19
     EditLabel.Caption = 'Please enter a password:'
+    ParentShowHint = False
+    PasswordChar = '*'
+    ShowHint = True
     TabOrder = 9
     Text = ''
+    OnExit = ledPassExit
   end
   object ledPWConf: TLabeledEdit
     Left = 8
@@ -199,8 +208,10 @@ object frmRegister: TfrmRegister
     EditLabel.Width = 176
     EditLabel.Height = 19
     EditLabel.Caption = 'Please confirm the password:'
+    PasswordChar = '*'
     TabOrder = 10
     Text = ''
+    OnExit = ledPassConfExit
   end
   object bitbtnRegister: TBitBtn
     Left = 254
@@ -231,6 +242,7 @@ object frmRegister: TfrmRegister
     EditLabel.Width = 83
     EditLabel.Height = 19
     EditLabel.Caption = 'Card number:'
+    NumbersOnly = True
     TabOrder = 13
     Text = ''
     OnExit = ledCardExit
@@ -243,8 +255,22 @@ object frmRegister: TfrmRegister
     EditLabel.Width = 135
     EditLabel.Height = 19
     EditLabel.Caption = 'Bank account number:'
+    NumbersOnly = True
     TabOrder = 14
     Text = ''
     OnExit = ledBankExit
+  end
+  object ledPhone: TLabeledEdit
+    Left = 8
+    Top = 200
+    Width = 121
+    Height = 27
+    EditLabel.Width = 90
+    EditLabel.Height = 19
+    EditLabel.Caption = 'Phone number:'
+    NumbersOnly = True
+    TabOrder = 15
+    Text = ''
+    OnExit = ledPhoneExit
   end
 end

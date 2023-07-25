@@ -75,7 +75,11 @@ begin
   frmCustomer.increaseArraySize;
 
   objCustomer := TCustomer.Create(frmPopulate.generateCode(ledName.Text, ledSurname.Text),
-  ledName.Text, ledSurname.Text, ledp)
+  ledName.Text, ledSurname.Text, ledPhone.Text, ledEmail.Text, ledAddress.Text, ledCity.Text,
+  ledPost.Text, cmbCountry.Items[cmbCountry.ItemIndex], rgpPayment.Items[rgpPayment.ItemIndex],
+   ledCard.Text, ledBank.Text, ledPWConf.Text);
+
+  frmCustomer.arrCustomer[frmCustomer.iCusCount -1] := objCustomer;
 end;
 
 procedure TfrmRegister.cmbCountryExit(Sender: TObject);
@@ -299,8 +303,6 @@ begin
       ledPhone.Clear;
       ledPhone.SetFocus;
     end;
-
-end;
 
 end;
 
