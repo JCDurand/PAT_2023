@@ -45,7 +45,7 @@ object frmWelcome: TfrmWelcome
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
-    object Image1: TImage
+    object imgTree: TImage
       Left = 504
       Top = 0
       Width = 105
@@ -57,9 +57,9 @@ object frmWelcome: TfrmWelcome
     Top = 176
     Width = 121
     Height = 27
-    EditLabel.Width = 64
+    EditLabel.Width = 36
     EditLabel.Height = 19
-    EditLabel.Caption = 'Username:'
+    EditLabel.Caption = 'Email:'
     TabOrder = 1
     Text = ''
   end
@@ -92,6 +92,7 @@ object frmWelcome: TfrmWelcome
     Kind = bkClose
     NumGlyphs = 2
     TabOrder = 4
+    OnClick = bitbtnCloseClick
   end
   object btnRegister: TButton
     Left = 328
@@ -101,5 +102,13 @@ object frmWelcome: TfrmWelcome
     Caption = 'Register account'
     TabOrder = 5
     OnClick = btnRegisterClick
+  end
+  object btnForgot: TButton
+    Left = 32
+    Top = 312
+    Width = 113
+    Height = 25
+    Caption = 'Forgot Password?'
+    TabOrder = 6
   end
 end

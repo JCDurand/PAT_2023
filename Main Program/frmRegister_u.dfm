@@ -14,11 +14,11 @@ object frmRegister: TfrmRegister
   TextHeight = 19
   object imgBack: TImage
     Left = -8
-    Top = 8
+    Top = 0
     Width = 593
     Height = 449
   end
-  object lblCountryy: TLabel
+  object lblCountry: TLabel
     Left = 192
     Top = 71
     Width = 100

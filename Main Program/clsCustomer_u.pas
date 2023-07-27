@@ -13,9 +13,10 @@ type
 
 
   public
-
     Constructor Create(sCID, sFirstName, sLastName, sPhoneNum, sEmail, sAddress, sCity, sPost,
                        sCountry, sPayMethod, sCardNum, sBankNum, sPassword: String);
+    function getEmail: String;
+    function getPass: String;
 
 end;
 
@@ -40,6 +41,16 @@ begin
   fCardNum := sCardNum;
   fBankNum := sBankNum;
   fPassword := sPassword
+end;
+
+function TCustomer.getEmail: String;
+begin
+  Result := fEmail;
+end;
+
+function TCustomer.getPass: String;
+begin
+  Result := fPassword;
 end;
 
 end.

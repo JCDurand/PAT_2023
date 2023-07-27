@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.Mask, Vcl.ExtCtrls,
-  JPEG, frmRegister_u, dmTest_u, frmCustomer_u , clsSupplier_u;
+  JPEG, frmRegister_u, dmTest_u, frmCustomer_u, frmSupplier_u , clsSupplier_u;
 
 type
   TfrmWelcome = class(TForm)
@@ -19,13 +19,16 @@ type
     btnRegister: TButton;
     imgBack: TImage;
     imgTree: TImage;
+    btnForgot: TButton;
     procedure btnRegisterClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure bitbtnCloseClick(Sender: TObject);
+    procedure bitbtnLoginClick(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
-    iCusCount, iSupCount: Integer;  //global counter for customers and suppliers in database
+    iSupCount: Integer;  //global counter for customers and suppliers in database
 
   end;
 
@@ -38,6 +41,20 @@ implementation
     clsCustomer_u;
 
 {$R *.dfm}
+
+procedure TfrmWelcome.bitbtnCloseClick(Sender: TObject);
+begin
+  Exit;
+end;
+
+procedure TfrmWelcome.bitbtnLoginClick(Sender: TObject);
+var
+  I: Integer;
+  sEmail, sPW: String;
+begin
+  sEmail := ledUsername.Text;
+  sPW := ledPass.Text;
+end;
 
 procedure TfrmWelcome.btnRegisterClick(Sender: TObject);
 begin
@@ -53,17 +70,10 @@ begin
   imgTree.Stretch := True;
   imgTree.Picture.LoadFromFile('Tree.jpg'); //load images for background
 
-  iCusCount := 0;
   iSupCount := 0;
 
   with dmTest do
     begin
-      tblCustomers.First;
-      while NOT tblCustomers.Eof do
-        begin
-          Inc(iCusCount);
-          tblCustomers.Next;
-        end;  //WHILE
 
       tblSupplier.First;
       while NOT tblSupplier.Eof do
@@ -73,11 +83,8 @@ begin
         end;
     end;  //WITH
 
-  SetLength(frmCustomer.arrCustomer, iCusCount);
-  SetLength(arrSupplier, iSupCount);  //initializes
 
-
-  ShowMessage('Customer: ' +IntToStr(iCusCount) + 'Supplier: ' + IntToStr(iSupCount));
+  SetLength(frmSupplier.arrSupplier, iSupCount);  //initializes dynamic arrays
 end;
 
 end.

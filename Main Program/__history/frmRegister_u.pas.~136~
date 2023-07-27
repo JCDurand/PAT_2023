@@ -21,7 +21,7 @@ type
     ledPost: TLabeledEdit;
     cmbCountry: TComboBox;
     rgpPayment: TRadioGroup;
-    lblCountryy: TLabel;
+    lblCountry: TLabel;
     lblPayment: TLabel;
     ledPW: TLabeledEdit;
     ledPWConf: TLabeledEdit;
@@ -76,7 +76,34 @@ begin
 
   objCustomer := TCustomer.Create(frmPopulate.generateCode(ledName.Text, ledSurname.Text),
   ledName.Text, ledSurname.Text, ledPhone.Text, ledEmail.Text, ledAddress.Text, ledCity.Text,
-  ledPost.Text, cmbCountry.Items[cmbCountry.ItemIndex], rgpPayment.Items[rgpPayment.ItemIndex], ledCard.Text, ledBank.Text, ledPWConf.Text;)
+  ledPost.Text, cmbCountry.Items[cmbCountry.ItemIndex], rgpPayment.Items[rgpPayment.ItemIndex],
+  ledCard.Text, ledBank.Text, ledPWConf.Text);
+
+  with dmTest do begin
+    tblCustomers.Last;
+    tblCustomers.Insert;
+
+    tblCustomers['CID'] := frmPopulate.generateCode(ledName.Text, ledSurname.Text);
+    tblCustomers['CFirstname'] := ledName.Text;
+    tblCustomers['CLastName'] := ledSurname.Text;
+    tblCustomers['CPhoneNum'] := ledPhone.Text;
+    tblCustomers['CEmail'] := ledEmail.Text;
+    tblCustomers['CAddress'] := ledAddress.Text;
+    tblCustomers['CCity'] := ledCity.Text;
+    tblCustomers['CPost'] := ledPost.Text;
+    tblCustomers['CCountry'] := cmbCountry.Items[cmbCountry.ItemIndex];
+    tblCustomers['CPayMethod'] := rgpPayment.Items[rgpPayment.ItemIndex];
+    tblCustomers['CCardNum'] := ledCard.Text;
+    tblCustomers['CBankAccountNum'] := ledBank.Text;
+
+    dmTest.tblCustomers.Post;
+
+  end;
+
+  frmCustomer.arrCustomer[frmCustomer.iCusCount -1] := objCustomer;
+
+  frmRegister.Hide;
+    frmWelcome.Show;
 end;
 
 procedure TfrmRegister.cmbCountryExit(Sender: TObject);

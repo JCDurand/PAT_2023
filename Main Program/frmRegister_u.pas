@@ -21,7 +21,7 @@ type
     ledPost: TLabeledEdit;
     cmbCountry: TComboBox;
     rgpPayment: TRadioGroup;
-    lblCountryy: TLabel;
+    lblCountry: TLabel;
     lblPayment: TLabel;
     ledPW: TLabeledEdit;
     ledPWConf: TLabeledEdit;
@@ -97,9 +97,13 @@ begin
     tblCustomers['CBankAccountNum'] := ledBank.Text;
 
     dmTest.tblCustomers.Post;
+
   end;
 
   frmCustomer.arrCustomer[frmCustomer.iCusCount -1] := objCustomer;
+
+  frmRegister.Hide;
+  frmWelcome.Show;
 end;
 
 procedure TfrmRegister.cmbCountryExit(Sender: TObject);

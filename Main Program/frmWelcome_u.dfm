@@ -83,6 +83,7 @@ object frmWelcome: TfrmWelcome
     Kind = bkOK
     NumGlyphs = 2
     TabOrder = 3
+    OnClick = bitbtnLoginClick
   end
   object bitbtnClose: TBitBtn
     Left = 545
@@ -106,7 +107,7 @@ object frmWelcome: TfrmWelcome
   object btnForgot: TButton
     Left = 32
     Top = 312
-    Width = 113
+    Width = 121
     Height = 25
     Caption = 'Forgot Password?'
     TabOrder = 6

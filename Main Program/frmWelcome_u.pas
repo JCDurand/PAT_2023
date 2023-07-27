@@ -23,6 +23,7 @@ type
     procedure btnRegisterClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure bitbtnCloseClick(Sender: TObject);
+    procedure bitbtnLoginClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -44,6 +45,21 @@ implementation
 procedure TfrmWelcome.bitbtnCloseClick(Sender: TObject);
 begin
   Exit;
+end;
+
+procedure TfrmWelcome.bitbtnLoginClick(Sender: TObject);
+var
+  I: Integer;
+  sEmail, sPW: String;
+begin
+  sEmail := ledUsername.Text;
+  sPW := ledPass.Text;
+
+  for I := 1 to frmCustomer.iCusCount-1 do
+  begin
+    if  =  then
+    
+  end;
 end;
 
 procedure TfrmWelcome.btnRegisterClick(Sender: TObject);
