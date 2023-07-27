@@ -11,8 +11,7 @@ uses
   frmWelcome_u in 'frmWelcome_u.pas' {frmWelcome},
   frmRegister_u in 'frmRegister_u.pas' {frmRegister},
   frmCustomer_u in 'frmCustomer_u.pas' {frmCustomer},
-  frmSupplier_u in 'frmSupplier_u.pas' {frmSupplier},
-  frmStore_u in 'frmStore_u.pas' {frmStore};
+  frmSupplier_u in 'frmSupplier_u.pas' {frmSupplier};
 
 {$R *.res}
 
@@ -26,6 +25,5 @@ begin
   Application.CreateForm(TfrmRegister, frmRegister);
   Application.CreateForm(TfrmCustomer, frmCustomer);
   Application.CreateForm(TfrmSupplier, frmSupplier);
-  Application.CreateForm(TfrmStore, frmStore);
   Application.Run;
 end.

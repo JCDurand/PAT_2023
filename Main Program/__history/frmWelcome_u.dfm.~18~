@@ -57,9 +57,9 @@ object frmWelcome: TfrmWelcome
     Top = 176
     Width = 121
     Height = 27
-    EditLabel.Width = 64
+    EditLabel.Width = 36
     EditLabel.Height = 19
-    EditLabel.Caption = 'Username:'
+    EditLabel.Caption = 'Email:'
     TabOrder = 1
     Text = ''
   end
@@ -83,6 +83,7 @@ object frmWelcome: TfrmWelcome
     Kind = bkOK
     NumGlyphs = 2
     TabOrder = 3
+    OnClick = bitbtnLoginClick
   end
   object bitbtnClose: TBitBtn
     Left = 545
@@ -92,6 +93,7 @@ object frmWelcome: TfrmWelcome
     Kind = bkClose
     NumGlyphs = 2
     TabOrder = 4
+    OnClick = bitbtnCloseClick
   end
   object btnRegister: TButton
     Left = 328
@@ -101,5 +103,13 @@ object frmWelcome: TfrmWelcome
     Caption = 'Register account'
     TabOrder = 5
     OnClick = btnRegisterClick
+  end
+  object btnForgot: TButton
+    Left = 32
+    Top = 312
+    Width = 121
+    Height = 25
+    Caption = 'Forgot Password?'
+    TabOrder = 6
   end
 end

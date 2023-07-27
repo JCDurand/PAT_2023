@@ -130,6 +130,10 @@
             <Form>frmSupplier</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="frmStore_u.pas">
+            <Form>frmStore</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

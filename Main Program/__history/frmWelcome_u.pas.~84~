@@ -5,7 +5,9 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.Mask, Vcl.ExtCtrls,
-  JPEG, frmRegister_u, dmTest_u, frmCustomer_u, frmSupplier_u , clsSupplier_u;
+  frmRegister_u, dmTest_u, frmCustomer_u, frmSupplier_u,
+  clsSupplier_u, clsCustomer_u,
+  JPEG;
 
 type
   TfrmWelcome = class(TForm)
@@ -26,6 +28,7 @@ type
     procedure bitbtnLoginClick(Sender: TObject);
   private
     { Private declarations }
+    objCustomer: TCustomer;
   public
     { Public declarations }
     iSupCount: Integer;  //global counter for customers and suppliers in database
@@ -37,8 +40,8 @@ var
 
 implementation
 
-  uses
-    clsCustomer_u;
+  {uses
+      clsCustomer_u;}
 
 {$R *.dfm}
 
@@ -50,8 +53,19 @@ end;
 procedure TfrmWelcome.bitbtnLoginClick(Sender: TObject);
 var
   I: Integer;
+  sEmail, sPW: String;
+  objCustomer: TObject;
 begin
+  sEmail := ledUsername.Text;
+  sPW := ledPass.Text;
 
+  for I := 1 to frmCustomer.iCusCount-1 do
+  begin
+    objCustomer := frmCustomer.arrCustomer[I];
+
+    if objCustomer.get  then
+    
+  end;
 end;
 
 procedure TfrmWelcome.btnRegisterClick(Sender: TObject);

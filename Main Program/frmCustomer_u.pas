@@ -12,12 +12,12 @@ type
   TfrmCustomer = class(TForm)
     procedure FormCreate(Sender: TObject);
     procedure increaseArraySize;
-    procedure addCustomer(objCustomer: TCustomer);s
+    procedure addCustomer(objCustomer: TCustomer);
   private
     { Private declarations }
   public
     { Public declarations }
-    arrCustomer: Array of TObject;
+    arrCustomer: Array of TCustomer;
     iCusCount: Integer;
   end;
 
