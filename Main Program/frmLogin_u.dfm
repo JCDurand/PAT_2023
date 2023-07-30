@@ -113,4 +113,16 @@ object frmLogin: TfrmLogin
     TabOrder = 6
     OnClick = btnForgotClick
   end
+  object DBGrid1: TDBGrid
+    Left = 272
+    Top = 231
+    Width = 320
+    Height = 120
+    TabOrder = 7
+    TitleFont.Charset = ANSI_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -16
+    TitleFont.Name = 'Times New Roman'
+    TitleFont.Style = []
+  end
 end

@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.Mask, Vcl.ExtCtrls,
   frmRegister_u, dmTest_u, frmCustomer_u, frmSupplier_u, frmStore_u, frmTFile_u,
   clsSupplier_u, clsCustomer_u,
-  JPEG;
+  JPEG, Data.DB, Vcl.Grids, Vcl.DBGrids;
 
 type
   TfrmLogin = class(TForm)
@@ -22,6 +22,7 @@ type
     imgBack: TImage;
     imgTree: TImage;
     btnForgot: TButton;
+    DBGrid1: TDBGrid;
     procedure btnRegisterClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure bitbtnCloseClick(Sender: TObject);
@@ -100,8 +101,12 @@ begin
 
   with dmTest do
   begin
-    runSQL('SELECT CPassword FROM tblCustomer WHERE CEmail = ' + QuotedStr(sEmail));
+    runSQL('SELECT CPassword, CEmail FROM Customer WHERE CEmail = ' + QuotedStr(sEmail));
 
+    if tblCustomers['CEmail'] = sEmail then
+      ShowMessage('Your password is: ' + tblCustomers['CPassword'])
+    else
+      ShowMessage('Invalid email entered.')
 
   end;
 
@@ -135,6 +140,7 @@ begin
         end;
     end;  //WITH
 
+  DBGrid1.DataSource := dmTest.dscCustomers;
 
   SetLength(frmSupplier.arrSupplier, iSupCount);  //initializes dynamic arrays
 end;
