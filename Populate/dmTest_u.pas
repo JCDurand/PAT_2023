@@ -3,7 +3,8 @@ unit dmTest_u;
 interface
 
 uses
-  System.SysUtils, System.Classes, ADODB, DB;
+  System.SysUtils, System.Classes, ADODB, DB, Data.FMTBcd, Data.DbxSqlite,
+  Data.SqlExpr, Vcl.Dialogs;
 
 type
   TdmTest = class(TDataModule)
@@ -15,6 +16,9 @@ type
     conTest: TADOConnection;
     tblCustomers, tblOrders, tblSupplier, tblProduct: TADOTable;
     dscCustomers, dscOrders, dscSupplier, dscProduct: TDataSource;
+    qryA: TADOQuery;
+
+    procedure runSQL(sSQL: String);
   end;
 
 var
@@ -29,6 +33,8 @@ implementation
 procedure TdmTest.DataModuleCreate(Sender: TObject);
 begin
   conTest := TADOConnection.Create(dmTest);
+  qryA := TADOQuery.Create(dmTest);
+
   tblCustomers := TADOTable.Create(dmTest);
   tblOrders := TADOTable.Create(dmTest);
   tblSupplier := TADOTable.Create(dmTest);
@@ -43,6 +49,8 @@ begin
   conTest.ConnectionString := 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source = ' + ExtractFilePath(ParamStr(0)) + 'PAT_Base.mdb' + ';Persist Security Info = False';
   conTest.LoginPrompt := False;
   conTest.Open();
+
+  qryA.Connection := conTest;
 
   tblCustomers.Connection := conTest;
   tblOrders.Connection := conTest;
@@ -63,6 +71,18 @@ begin
   tblOrders.Open;
   tblSupplier.Open;
   tblProduct.Open;
+end;
+
+procedure TdmTest.runSQL(sSQL: String);
+begin
+  if Length(sSQL) <> 0 then
+  begin
+    qryA.Close;
+    qryA.SQL.Text := sSQL;
+    qryA.Open;
+  end
+  else
+    ShowMessage('No SQL statement entered.');
 end;
 
 end.

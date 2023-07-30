@@ -111,5 +111,6 @@ object frmLogin: TfrmLogin
     Height = 25
     Caption = 'Forgot Password?'
     TabOrder = 6
+    OnClick = btnForgotClick
   end
 end

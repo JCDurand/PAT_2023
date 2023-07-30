@@ -26,6 +26,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure bitbtnCloseClick(Sender: TObject);
     procedure bitbtnLoginClick(Sender: TObject);
+    procedure btnForgotClick(Sender: TObject);
   private
     { Private declarations }
     objCustomer: TCustomer;
@@ -87,6 +88,24 @@ begin
       ledPass.Clear;
       frmTFile_u.frmTFile.addCustLine('Invalid credentials entered.');
     end;
+end;
+
+procedure TfrmLogin.btnForgotClick(Sender: TObject);
+var
+  sEmail: String;
+  bFlag: Boolean;
+begin
+  sEmail := InputBox('Password recovery', 'Please enter your email address:','');
+  bFlag := False;
+
+  with dmTest do
+  begin
+    runSQL('SELECT CPassword FROM tblCustomer WHERE CEmail = ' + QuotedStr(sEmail));
+
+
+  end;
+
+
 end;
 
 procedure TfrmLogin.btnRegisterClick(Sender: TObject);

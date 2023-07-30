@@ -1,0 +1,22 @@
+object dmTest: TdmTest
+  OnCreate = DataModuleCreate
+  Height = 435
+  Width = 554
+  object qryCustomer: TSQLQuery
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = sqlCon
+    Left = 72
+    Top = 192
+  end
+  object sqlCon: TSQLConnection
+    ConnectionName = 'SQLITECONNECTION'
+    DriverName = 'Sqlite'
+    LoginPrompt = False
+    Params.Strings = (
+      'DriverName=Sqlite'
+      'Database=test.db')
+    Left = 72
+    Top = 104
+  end
+end
