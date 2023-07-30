@@ -22,7 +22,6 @@ type
     imgBack: TImage;
     imgTree: TImage;
     btnForgot: TButton;
-    DBGrid1: TDBGrid;
     procedure btnRegisterClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure bitbtnCloseClick(Sender: TObject);
@@ -106,8 +105,9 @@ begin
     if tblCustomers['CEmail'] = sEmail then
       ShowMessage('Your password is: ' + tblCustomers['CPassword'])
     else
-      ShowMessage('Invalid email entered.')
+      ShowMessage('Invalid email entered.');
 
+    frmTFile.addCustLine(tblCustomers['CFirstName'] + ' ' + tblCustomers['CLastName'] + ' recovered their password.');
   end;
 
 

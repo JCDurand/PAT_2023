@@ -48,7 +48,6 @@ uses
 procedure TfrmStore.bitbitLogoutClick(Sender: TObject);
 begin
   frmStore.Hide;
-  frmLogin.Show;
 end;
 
 procedure TfrmStore.formCreate(Sender: TObject);

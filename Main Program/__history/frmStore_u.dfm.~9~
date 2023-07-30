@@ -144,6 +144,5 @@ object frmStore: TfrmStore
     Height = 25
     Caption = 'Logout'
     TabOrder = 10
-    OnClick = bitbitLogoutClick
   end
 end

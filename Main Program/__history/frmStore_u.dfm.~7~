@@ -115,35 +115,18 @@ object frmStore: TfrmStore
   end
   object btnNext: TButton
     Left = 8
-    Top = 344
+    Top = 336
     Width = 97
     Height = 25
     Caption = 'Next Page'
     TabOrder = 7
   end
   object btnPrevious: TButton
-    Left = 8
-    Top = 384
-    Width = 97
+    Left = 111
+    Top = 336
+    Width = 96
     Height = 25
     Caption = 'Previous Page'
     TabOrder = 8
-  end
-  object btnCart: TButton
-    Left = 519
-    Top = 344
-    Width = 101
-    Height = 25
-    Caption = 'View Cart'
-    TabOrder = 9
-  end
-  object bitbitLogout: TBitBtn
-    Left = 519
-    Top = 384
-    Width = 101
-    Height = 25
-    Caption = 'Logout'
-    TabOrder = 10
-    OnClick = bitbitLogoutClick
   end
 end

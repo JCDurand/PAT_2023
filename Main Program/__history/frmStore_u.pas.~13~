@@ -40,15 +40,11 @@ var
 
 implementation
 
-uses
-  frmLogin_u;
-
 {$R *.dfm}
 
 procedure TfrmStore.bitbitLogoutClick(Sender: TObject);
 begin
   frmStore.Hide;
-  frmLogin.Show;
 end;
 
 procedure TfrmStore.formCreate(Sender: TObject);

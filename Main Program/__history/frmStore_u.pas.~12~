@@ -28,7 +28,6 @@ type
     btnCart: TButton;
     bitbitLogout: TBitBtn;
     procedure formCreate(Sender: TObject);
-    procedure bitbitLogoutClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -40,16 +39,7 @@ var
 
 implementation
 
-uses
-  frmLogin_u;
-
 {$R *.dfm}
-
-procedure TfrmStore.bitbitLogoutClick(Sender: TObject);
-begin
-  frmStore.Hide;
-  frmLogin.Show;
-end;
 
 procedure TfrmStore.formCreate(Sender: TObject);
 begin

@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls,
-  JPEG, Vcl.StdCtrls, Vcl.Buttons;
+  JPEG, Vcl.StdCtrls;
 
 type
   TfrmStore = class(TForm)
@@ -25,10 +25,7 @@ type
     img3: TImage;
     btnNext: TButton;
     btnPrevious: TButton;
-    btnCart: TButton;
-    bitbitLogout: TBitBtn;
     procedure formCreate(Sender: TObject);
-    procedure bitbitLogoutClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -40,16 +37,7 @@ var
 
 implementation
 
-uses
-  frmLogin_u;
-
 {$R *.dfm}
-
-procedure TfrmStore.bitbitLogoutClick(Sender: TObject);
-begin
-  frmStore.Hide;
-  frmLogin.Show;
-end;
 
 procedure TfrmStore.formCreate(Sender: TObject);
 begin

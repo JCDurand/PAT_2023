@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.Mask, Vcl.ExtCtrls,
   frmRegister_u, dmTest_u, frmCustomer_u, frmSupplier_u, frmStore_u, frmTFile_u,
   clsSupplier_u, clsCustomer_u,
-  JPEG;
+  JPEG, Data.DB, Vcl.Grids, Vcl.DBGrids;
 
 type
   TfrmLogin = class(TForm)
@@ -100,9 +100,14 @@ begin
 
   with dmTest do
   begin
-    runSQL('SELECT CPassword FROM tblCustomer WHERE CEmail = ' + QuotedStr(sEmail));
+    runSQL('SELECT CPassword, CEmail FROM Customer WHERE CEmail = ' + QuotedStr(sEmail));
 
+    if tblCustomers['CEmail'] = sEmail then
+      ShowMessage('Your password is: ' + tblCustomers['CPassword'])
+    else
+      ShowMessage('Invalid email entered.');
 
+    frmTFile.addCustLine(tblCustomers['CFirstName'] + ' ' + tblCustomers['CLastName'] + ' recovered their password.')'
   end;
 
 
@@ -135,6 +140,7 @@ begin
         end;
     end;  //WITH
 
+  DBGrid1.DataSource := dmTest.dscCustomers;
 
   SetLength(frmSupplier.arrSupplier, iSupCount);  //initializes dynamic arrays
 end;

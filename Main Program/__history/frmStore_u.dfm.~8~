@@ -132,7 +132,7 @@ object frmStore: TfrmStore
   object btnCart: TButton
     Left = 519
     Top = 344
-    Width = 101
+    Width = 75
     Height = 25
     Caption = 'View Cart'
     TabOrder = 9
@@ -140,10 +140,9 @@ object frmStore: TfrmStore
   object bitbitLogout: TBitBtn
     Left = 519
     Top = 384
-    Width = 101
+    Width = 75
     Height = 25
     Caption = 'Logout'
     TabOrder = 10
-    OnClick = bitbitLogoutClick
   end
 end
