@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, dmTest_u, frmPopulate_u, frmWelcome_u, Vcl.StdCtrls, frmCustomer_u;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, dmTest_u, frmPopulate_u, frmLogin_u, Vcl.StdCtrls, frmCustomer_u;
 
 type
   TfrmMain = class(TForm)
@@ -34,7 +34,7 @@ end;
 procedure TfrmMain.btnWelcomClick(Sender: TObject);
 begin
   frmMain.Hide;
-  frmWelcome.Show;
+  frmLogin.Show;
 
 end;
 

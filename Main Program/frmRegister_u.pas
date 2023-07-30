@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls,
   Vcl.StdCtrls, Vcl.Buttons, Vcl.Mask,
-  frmCustomer_u, frmPopulate_u, clsCustomer_u, dmTest_u,
+  frmCustomer_u, frmPopulate_u, frmTFile_u, clsCustomer_u, dmTest_u,
   JPEG;
 
 type
@@ -59,13 +59,13 @@ var
 implementation
 
 uses
-  frmWelcome_u;
+  frmLogin_u;
 {$R *.dfm}
 
 procedure TfrmRegister.bitbtnCancelClick(Sender: TObject);
 begin
   frmRegister.Hide;
-  frmWelcome.Show;
+  frmLogin.Show;
 end;
 
 procedure TfrmRegister.bitbtnRegisterClick(Sender: TObject);
@@ -102,8 +102,10 @@ begin
 
   frmCustomer.arrCustomer[frmCustomer.iCusCount -1] := objCustomer;
 
+  frmTFile.addCustLine('New user added: ' + ledName.Text + ' ' + ledSurname.Text + '.');
+
   frmRegister.Hide;
-  frmWelcome.Show;
+  frmLogin.Show;
 end;
 
 procedure TfrmRegister.cmbCountryExit(Sender: TObject);

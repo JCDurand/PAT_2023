@@ -17,6 +17,8 @@ type
                        sCountry, sPayMethod, sCardNum, sBankNum, sPassword: String);
     function getEmail: String;
     function getPass: String;
+    function getName: String;
+    function getSurName: String;
 
 end;
 
@@ -48,9 +50,19 @@ begin
   Result := fEmail;
 end;
 
+function TCustomer.getName: String;
+begin
+  Result := fFirstName;
+end;
+
 function TCustomer.getPass: String;
 begin
   Result := fPassword;
+end;
+
+function TCustomer.getSurName: String;
+begin
+  Result := fLastName;
 end;
 
 end.

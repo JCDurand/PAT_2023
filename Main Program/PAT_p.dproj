@@ -114,8 +114,8 @@
         <DCCReference Include="clsCustomer_u.pas"/>
         <DCCReference Include="clsProduct_u.pas"/>
         <DCCReference Include="clsSupplier_u.pas"/>
-        <DCCReference Include="frmWelcome_u.pas">
-            <Form>frmWelcome</Form>
+        <DCCReference Include="frmLogin_u.pas">
+            <Form>frmLogin</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="frmRegister_u.pas">
@@ -132,6 +132,10 @@
         </DCCReference>
         <DCCReference Include="frmStore_u.pas">
             <Form>frmStore</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="frmTFile_u.pas">
+            <Form>frmTFile</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
