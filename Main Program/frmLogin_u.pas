@@ -35,6 +35,7 @@ type
   public
     { Public declarations }
     iSupCount: Integer;  //global counter for customers and suppliers in database
+    sUser: String;
 
   end;
 
@@ -81,6 +82,7 @@ begin
       ShowMessage('Welcome, ' + sName);
       frmLogin.Hide;
       frmStore.Show;
+      sUser := sName + sSurName;
       frmTFile_u.frmTFile.addCustLine(sName + ' ' + sSurName + ' logged in.');
     end
   else
@@ -95,10 +97,8 @@ end;
 procedure TfrmLogin.btnForgotClick(Sender: TObject);
 var
   sEmail: String;
-  bFlag: Boolean;
 begin
   sEmail := InputBox('Password recovery', 'Please enter your email address:','');
-  bFlag := False;
 
   with dmTest do
   begin

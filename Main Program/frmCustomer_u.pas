@@ -6,10 +6,12 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
   dmTest_u,
-  clsCustomer_u, Vcl.StdCtrls;
+  clsCustomer_u, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.TabNotBk;
 
 type
   TfrmCustomer = class(TForm)
+    TabbedNotebook1: TTabbedNotebook;
+    Panel1: TPanel;
     procedure FormCreate(Sender: TObject);
     procedure increaseArraySize;
     procedure addCustomer(objCustomer: TCustomer);

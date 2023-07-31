@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Data.DB, Vcl.Grids, dmTest_u,
-  Vcl.DBGrids, Math;
+  Vcl.DBGrids, Math, JPEG;
 
 type
   TProduct = class(TObject)
@@ -14,6 +14,7 @@ type
   fName, fCat: String;
   fAmount: Integer;
   fCost: Real;
+  fImage: TJPEGImage;
 
   public
 
