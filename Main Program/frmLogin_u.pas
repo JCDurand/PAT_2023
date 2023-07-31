@@ -129,6 +129,9 @@ begin
   imgTree.Stretch := True;
   imgTree.Picture.LoadFromFile('Tree.jpg'); //load images for background
 
+  ledUsername.Clear;
+  ledPass.Clear;
+
   iSupCount := 0;
 
   with dmTest do
