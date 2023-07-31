@@ -95,6 +95,7 @@ begin
     tblCustomers['CPayMethod'] := rgpPayment.Items[rgpPayment.ItemIndex];
     tblCustomers['CCardNum'] := ledCard.Text;
     tblCustomers['CBankAccountNum'] := ledBank.Text;
+    tblCustomers['CPassword'] := ledPWConf.Text;
 
     dmTest.tblCustomers.Post;
 

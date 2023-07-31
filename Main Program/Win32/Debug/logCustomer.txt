@@ -1,4 +1,10 @@
 2023/07/30 20:08:41; Invalid credentials entered.
 2023/07/30 20:09:07; Invalid credentials entered.
 2023/07/30 20:09:16; Invalid credentials entered.
-2023/07/30 20:09:24; Jordan  Green logged in.
+2023/07/30 20:09:24; Jordan Green logged in.
+2023-07-31 12:10:29; New user added: Gerald Salter.
+2023-07-31 12:10:48; Invalid credentials entered.
+2023-07-31 12:12:52; Invalid credentials entered.
+2023-07-31 12:12:58; Invalid credentials entered.
+2023-07-31 12:14:50; Gerald Salter logged in.
+2023-07-31 12:21:01; Gerald Salter logged in.

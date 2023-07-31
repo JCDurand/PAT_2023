@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.Mask, Vcl.ExtCtrls,
   frmRegister_u, dmTest_u, frmCustomer_u, frmSupplier_u, frmStore_u, frmTFile_u,
   clsSupplier_u, clsCustomer_u,
-  JPEG, Data.DB, Vcl.Grids, Vcl.DBGrids;
+  JPEG, Data.DB, Vcl.Grids, Vcl.DBGrids, Vcl.Imaging.pngimage;
 
 type
   TfrmLogin = class(TForm)
@@ -22,11 +22,13 @@ type
     imgBack: TImage;
     imgTree: TImage;
     btnForgot: TButton;
+    imgPWShow: TImage;
     procedure btnRegisterClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure bitbtnCloseClick(Sender: TObject);
     procedure bitbtnLoginClick(Sender: TObject);
     procedure btnForgotClick(Sender: TObject);
+    procedure imgPWShowClick(Sender: TObject);
   private
     { Private declarations }
     objCustomer: TCustomer;
@@ -140,9 +142,16 @@ begin
         end;
     end;  //WITH
 
-  DBGrid1.DataSource := dmTest.dscCustomers;
 
   SetLength(frmSupplier.arrSupplier, iSupCount);  //initializes dynamic arrays
+end;
+
+procedure TfrmLogin.imgPWShowClick(Sender: TObject);
+begin
+  case ledPass.PasswordChar of
+    #0: ledPass.PasswordChar := '*';
+    '*': ledPass.PasswordChar := #0;
+  end;
 end;
 
 end.
