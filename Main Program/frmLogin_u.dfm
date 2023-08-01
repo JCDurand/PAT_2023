@@ -2,8 +2,8 @@ object frmLogin: TfrmLogin
   Left = 0
   Top = 0
   Caption = 'Login'
-  ClientHeight = 442
-  ClientWidth = 628
+  ClientHeight = 441
+  ClientWidth = 624
   Color = clBtnFace
   Font.Charset = ANSI_CHARSET
   Font.Color = clWindowText
@@ -159,7 +159,7 @@ object frmLogin: TfrmLogin
     EditLabel.Height = 19
     EditLabel.Caption = 'Email:'
     TabOrder = 1
-    Text = ''
+    Text = 'calcuslater@dijkstra.com'
   end
   object ledPass: TLabeledEdit
     Left = 32
@@ -171,7 +171,7 @@ object frmLogin: TfrmLogin
     EditLabel.Caption = 'Password:'
     PasswordChar = '*'
     TabOrder = 2
-    Text = ''
+    Text = '1234'
   end
   object bitbtnLogin: TBitBtn
     Left = 32
