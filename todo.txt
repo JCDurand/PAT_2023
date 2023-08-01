@@ -1,0 +1,34 @@
+To do:
+Complete product page:
+	add to order
+	check against amount
+	if successful: add to global counter for total price 
+	add to array for display in cart
+
+Complete cart page:
+	update list of items when refresh clicked- sync from array
+	code checkout button: takes to checkout
+
+Complete checkout page:
+	design the GUI
+	provide summary of purchases and total cost
+	if successful: create order, may need multiple per product
+	add to log
+	
+Complete customer form:
+	design the GUI
+	provide system to see past orders
+	provide system to update user information
+	change password if set to 1234
+	add to log
+	
+complete supplier form:
+	design the GUI
+	provide list of product and amounts
+	allow to update information and product information
+	add to log
+	
+create admin form:
+	dbgrids with all information
+	log viewing page
+	add to log

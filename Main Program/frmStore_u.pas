@@ -43,6 +43,7 @@ type
     sedDetailAmount: TSpinEdit;
     lblDetailAmount: TLabel;
     btnDetailAdd: TButton;
+    lblDetailPrice: TLabel;
     procedure formCreate(Sender: TObject);
     procedure bitbitLogoutClick(Sender: TObject);
     procedure btnAccountClick(Sender: TObject);
@@ -98,6 +99,7 @@ begin
     loadProdDetail;
     imgDetailProd.Stretch := True;
     imgDetailProd.Picture.LoadFromFile('Products\' + arrProducts[1] + '.jpg');
+    lblDetailAmount.Caption := FormatFloat('R0.00', tblProduct['PCost']);
     tbNTBK1.ActivePage := 'Product';
   end;  //WITH
 end;
@@ -118,6 +120,7 @@ begin
     loadProdDetail;
     imgDetailProd.Stretch := True;
     imgDetailProd.Picture.LoadFromFile('Products\' + arrProducts[2] + '.jpg');
+    lblDetailAmount.Caption := FormatFloat('R0.00', tblProduct['PCost']);
     tbNTBK1.ActivePage := 'Product';
   end;  //WITH
 end;
@@ -138,6 +141,7 @@ begin
     loadProdDetail;
     imgDetailProd.Stretch := True;
     imgDetailProd.Picture.LoadFromFile('Products\' + arrProducts[3] + '.jpg');
+    lblDetailAmount.Caption := FormatFloat('R0.00', tblProduct['PCost']);
     tbNTBK1.ActivePage := 'Product';
   end;  //WITH
 end;

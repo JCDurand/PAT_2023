@@ -18,6 +18,7 @@ object frmStore: TfrmStore
     Top = 0
     Width = 633
     Height = 441
+    PageIndex = 3
     TabFont.Charset = DEFAULT_CHARSET
     TabFont.Color = clBtnText
     TabFont.Height = -12
@@ -222,6 +223,12 @@ object frmStore: TfrmStore
         Width = 51
         Height = 19
         Caption = 'Amount:'
+      end
+      object lblDetailPrice: TLabel
+        Left = 487
+        Top = 163
+        Width = 4
+        Height = 19
       end
       object redDetailProd: TRichEdit
         Left = 10

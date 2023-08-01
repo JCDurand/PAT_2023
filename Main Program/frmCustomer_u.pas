@@ -10,8 +10,6 @@ uses
 
 type
   TfrmCustomer = class(TForm)
-    TabbedNotebook1: TTabbedNotebook;
-    Panel1: TPanel;
     procedure FormCreate(Sender: TObject);
     procedure increaseArraySize;
     procedure addCustomer(objCustomer: TCustomer);
