@@ -20,7 +20,7 @@ type
     btnCart: TButton;
     btnNext: TButton;
     btnPrevious: TButton;
-    imgBack: TImage;
+    imgBack1: TImage;
     pnl1: TPanel;
     lbl1: TLabel;
     img1: TImage;
@@ -31,13 +31,22 @@ type
     lbl3: TLabel;
     img3: TImage;
     pnlTitle: TPanel;
+    listBxCart: TListBox;
+    imgRefresh: TImage;
+    imgCheckout: TImage;
+    btnRefresh: TButton;
+    btnCheckout: TButton;
+    btnStore: TButton;
+    imgBack2: TImage;
+    imgBack3: TImage;
     procedure formCreate(Sender: TObject);
     procedure bitbitLogoutClick(Sender: TObject);
     procedure btnAccountClick(Sender: TObject);
     procedure formShow(Sender: TObject);
+    procedure btnStoreClick(Sender: TObject);
   private
     { Private declarations }
-
+    procedure nextRecordSet;
   public
     { Public declarations }
     iProdCount: Integer;  //global public counter for products in database
@@ -68,12 +77,20 @@ begin
   frmCustomer.Show;
 end;
 
+procedure TfrmStore.btnStoreClick(Sender: TObject);
+begin
+  tbNTBK1.ActivePage := 'Store';
+end;
+
 procedure TfrmStore.formCreate(Sender: TObject);
 begin
   iProdCount := 0;
-
-  imgBack.Stretch := True;
-  imgBack.Picture.LoadFromFile('Background.jpg');
+  imgBack1.Stretch := True;
+  imgBack1.Picture.LoadFromFile('Background.jpg');
+  imgBack2.Stretch := True;
+  imgBack2.Picture.LoadFromFile('Background.jpg');
+  imgBack3.Stretch := True;
+  imgBack3.Picture.LoadFromFile('Background.jpg');
 
   with dmTest do
   begin
@@ -113,6 +130,24 @@ begin
     img3.Picture.LoadFromFile('Products\' + tblProduct['PID'] + '.jpg');
 
   end;
+end;
+
+procedure TfrmStore.nextRecordSet;
+var
+  I: Integer;
+begin
+  for I := 1 to 3 do
+  begin
+    with dmTest do
+    begin
+      if tblProduct.Eof then
+        Break;
+      lbl1.Caption := tblProduct['PName'];
+      img1.Picture.LoadFromFile('Products\' + tblProduct['PID'] + '.jpg');
+      tblProduct.Next;
+    end;  //WITH
+
+  end;  //FOR
 end;
 
 end.

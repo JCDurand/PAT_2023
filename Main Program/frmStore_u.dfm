@@ -28,11 +28,7 @@ object frmStore: TfrmStore
       Left = 4
       Top = 26
       Caption = 'Store'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
-      object imgBack: TImage
+      object imgBack1: TImage
         Left = -8
         Top = -15
         Width = 633
@@ -201,18 +197,68 @@ object frmStore: TfrmStore
       Left = 4
       Top = 26
       Caption = 'Cart'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
+      object imgRefresh: TImage
+        Left = 264
+        Top = 16
+        Width = 73
+        Height = 73
+      end
+      object imgCheckout: TImage
+        Left = 264
+        Top = 110
+        Width = 73
+        Height = 73
+      end
+      object imgBack2: TImage
+        Left = -4
+        Top = -1
+        Width = 629
+        Height = 410
+      end
+      object listBxCart: TListBox
+        Left = 8
+        Top = 16
+        Width = 233
+        Height = 386
+        ItemHeight = 15
+        TabOrder = 0
+      end
+      object btnRefresh: TButton
+        Left = 392
+        Top = 32
+        Width = 97
+        Height = 46
+        Caption = 'Refresh Cart'
+        TabOrder = 1
+      end
+      object btnCheckout: TButton
+        Left = 392
+        Top = 120
+        Width = 97
+        Height = 46
+        Caption = 'Checkout'
+        TabOrder = 2
+      end
+      object btnStore: TButton
+        Left = 515
+        Top = 358
+        Width = 97
+        Height = 46
+        Caption = 'Go to store'
+        TabOrder = 3
+        OnClick = btnStoreClick
+      end
     end
     object TTabPage
       Left = 4
       Top = 26
       Caption = 'Checkout'
-      ExplicitTop = 6
-      ExplicitWidth = 292
-      ExplicitHeight = 240
+      object imgBack3: TImage
+        Left = -4
+        Top = -1
+        Width = 629
+        Height = 410
+      end
     end
   end
 end
