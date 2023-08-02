@@ -4,17 +4,37 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.TabNotBk,
+  Vcl.Mask, Vcl.Buttons, ADODB, DATA.DB,
   dmTest_u,
-  clsCustomer_u, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.TabNotBk;
+  clsCustomer_u;
 
 type
   TfrmCustomer = class(TForm)
+    bitbtnCancel: TBitBtn;
+    bitbtnUpdate: TBitBtn;
+    cmbCountry: TComboBox;
+    imgBack: TImage;
+    lblCountry: TLabel;
+    lblPayment: TLabel;
+    ledAddress: TLabeledEdit;
+    ledBank: TLabeledEdit;
+    ledCard: TLabeledEdit;
+    ledCity: TLabeledEdit;
+    ledEmail: TLabeledEdit;
+    ledPhone: TLabeledEdit;
+    ledPost: TLabeledEdit;
+    ledPW: TLabeledEdit;
+    ledPWConf: TLabeledEdit;
+    pnlInstructions: TPanel;
+    rgpPayment: TRadioGroup;
     procedure FormCreate(Sender: TObject);
     procedure increaseArraySize;
     procedure addCustomer(objCustomer: TCustomer);
+    procedure ledPhoneExit(Sender: TObject);
   private
     { Private declarations }
+    procedure prepDB(sText: String);
   public
     { Public declarations }
     arrCustomer: Array of TCustomer;
@@ -25,6 +45,9 @@ var
   frmCustomer: TfrmCustomer;
 
 implementation
+
+uses
+  frmLogin_u;
 
 {$R *.dfm}
 
@@ -78,6 +101,32 @@ procedure TfrmCustomer.increaseArraySize;
 begin
   Inc(iCusCount);
   SetLength(arrCustomer, iCusCount);
+end;
+
+procedure TfrmCustomer.ledPhoneExit(Sender: TObject);
+begin
+  with dmTest do
+  begin
+    prepDB(ledPhone.Text);
+
+    tblCustomers['CPhoneNum'] := ledPhone.Text;
+    tblCustomers.Post;
+  end;
+end;
+
+procedure TfrmCustomer.prepDB(sText: String);
+begin
+  if sText = '' then
+    begin
+      ShowMessage('Please enter a new value.');
+      Exit;
+    end;
+
+  with dmTest do
+  begin
+    tblCustomers.Locate('CID', frmLogin.sUser, [loCaseInsensitive]);
+    tblCustomers.Insert;
+  end;
 end;
 
 end.
