@@ -46,6 +46,7 @@ type
     lblDetailStock: TLabel;
     lblCartSubtotal: TLabel;
     lblCartSubtotalDis: TLabel;
+    RichEdit1: TRichEdit;
     procedure formCreate(Sender: TObject);
     procedure bitbitLogoutClick(Sender: TObject);
     procedure btnAccountClick(Sender: TObject);

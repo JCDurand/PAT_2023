@@ -1207,6 +1207,21 @@ object frmStore: TfrmStore
         Width = 629
         Height = 410
       end
+      object RichEdit1: TRichEdit
+        Left = 8
+        Top = 16
+        Width = 213
+        Height = 386
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Lines.Strings = (
+          'RichEdit1')
+        ParentFont = False
+        TabOrder = 0
+      end
     end
   end
 end
