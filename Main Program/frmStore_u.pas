@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls,
-  JPEG, Vcl.StdCtrls, Vcl.Buttons, ADODB,
+  JPEG, Vcl.StdCtrls, Vcl.Buttons, ADODB, Data.DB,
   frmCustomer_u, frmTFile_u, dmTest_u,
   clsProduct_u, Vcl.ComCtrls, Vcl.TabNotBk, Vcl.Samples.Spin,
   Vcl.Imaging.pngimage;
@@ -46,7 +46,16 @@ type
     lblDetailStock: TLabel;
     lblCartSubtotal: TLabel;
     lblCartSubtotalDis: TLabel;
-    RichEdit1: TRichEdit;
+    redCheckOut: TRichEdit;
+    lblCheckSub: TLabel;
+    lblCheckTax: TLabel;
+    lblCheckGrand: TLabel;
+    lblCheckShip: TLabel;
+    lblCheckSubDis: TLabel;
+    lblCheckTaxDis: TLabel;
+    lblCheckShipDis: TLabel;
+    lblCheckGrandDis: TLabel;
+    btnCheckOrder: TButton;
     procedure formCreate(Sender: TObject);
     procedure bitbitLogoutClick(Sender: TObject);
     procedure btnAccountClick(Sender: TObject);
@@ -60,9 +69,11 @@ type
     procedure btnDetailAddClick(Sender: TObject);
     procedure imgRefreshClick(Sender: TObject);
     procedure imgCheckoutClick(Sender: TObject);
+    procedure btnCheckOrderClick(Sender: TObject);
   private
     { Private declarations }
-    rSubTotal: Real;
+    rSubTotal, rGrandTotal: Real;
+    iAmount: Integer;
     iCartCount: Byte; //global counter for products in cart
 
     arrCart: Array of String;
@@ -78,6 +89,11 @@ type
 
 var
   frmStore: TfrmStore;
+
+const
+  VAT = 0.15;
+  SHIPLOCAL = 100;
+  SHIPGLOBAL = 200;
 
 implementation
 
@@ -169,9 +185,32 @@ begin
   frmCustomer.Show;
 end;
 
-procedure TfrmStore.btnDetailAddClick(Sender: TObject);
+procedure TfrmStore.btnCheckOrderClick(Sender: TObject);
 var
-  iAmount: Integer;
+  I: Integer;
+begin
+  if rSubTotal = 0 then
+  begin
+    ShowMessage('Please select some products.');
+    Exit;
+  end;
+
+  with dmTest do
+  begin
+    for I := 0 to iProdCount-1 do
+    begin
+      tblProduct.Locate('PID', arrProducts[I], [loCaseInsensitive]);
+
+      tblProduct.Edit;
+      tblProduct['PAmount'] := tblProduct['PAmount']- iAmount;
+      tblProduct.Post;
+    end;  //FOR
+
+    end;  //WITH
+
+end;
+
+procedure TfrmStore.btnDetailAddClick(Sender: TObject);
 begin
   if sedDetailAmount.Value = 0 then
   begin
@@ -191,9 +230,6 @@ begin
     end
     else
     begin
-      tblProduct.Edit;
-      tblProduct['PAmount'] := tblProduct['PAmount']- iAmount;
-      tblProduct.Post;
 
       rSubTotal := rSubTotal + iAmount*tblProduct['PCost'];
       Inc(iCartCount);
@@ -305,6 +341,16 @@ end;
 procedure TfrmStore.imgCheckoutClick(Sender: TObject);
 begin
   tbNTBK1.ActivePage := 'Checkout';
+
+  rGrandTotal := rSubTotal + (rSubTotal*VAT) + SHIPLOCAL;
+
+  lblCheckSubDis.Caption := FormatFloat('R0.00', rSubTotal);
+  lblCheckTaxDis.Caption := FormatFloat('R0.00', rSubTotal*VAT);
+  lblCheckShipDis.Caption := FormatFloat('R0.00', SHIPLOCAL);
+  lblCheckGrandDis.Caption := FormatFloat('R0.00', rGrandTotal);
+
+
+
 end;
 
 procedure TfrmStore.imgRefreshClick(Sender: TObject);
@@ -312,6 +358,7 @@ var
   I: Integer;
 begin
   listBxCart.Clear;
+  redCheckOut.Clear;
 
   if iCartCount = 0 then
   begin
@@ -321,6 +368,7 @@ begin
   for I := 1 to iCartCount do
   begin
     listBxCart.Items.Add(arrCart[I-1]);
+    redCheckOut.Lines.Add(arrCart[I-1]);
   end;
 
   lblCartSubtotalDis.Caption := FormatFloat('R0.00', rSubTotal);

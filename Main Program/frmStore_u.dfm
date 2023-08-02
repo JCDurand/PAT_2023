@@ -19,7 +19,7 @@ object frmStore: TfrmStore
     Top = 0
     Width = 633
     Height = 441
-    PageIndex = 2
+    PageIndex = 3
     TabFont.Charset = DEFAULT_CHARSET
     TabFont.Color = clBtnText
     TabFont.Height = -12
@@ -1207,20 +1207,110 @@ object frmStore: TfrmStore
         Width = 629
         Height = 410
       end
-      object RichEdit1: TRichEdit
+      object lblCheckSub: TLabel
+        Left = 304
+        Top = 19
+        Width = 60
+        Height = 19
+        Caption = 'Subtotal:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object lblCheckTax: TLabel
+        Left = 304
+        Top = 59
+        Width = 33
+        Height = 19
+        Caption = 'VAT:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object lblCheckGrand: TLabel
+        Left = 304
+        Top = 138
+        Width = 81
+        Height = 19
+        Caption = 'Grand total:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object lblCheckShip: TLabel
+        Left = 304
+        Top = 96
+        Width = 62
+        Height = 19
+        Caption = 'Shipping:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object lblCheckSubDis: TLabel
+        Left = 426
+        Top = 19
+        Width = 4
+        Height = 19
+      end
+      object lblCheckTaxDis: TLabel
+        Left = 426
+        Top = 59
+        Width = 4
+        Height = 19
+      end
+      object lblCheckShipDis: TLabel
+        Left = 426
+        Top = 96
+        Width = 4
+        Height = 19
+      end
+      object lblCheckGrandDis: TLabel
+        Left = 426
+        Top = 138
+        Width = 4
+        Height = 19
+      end
+      object redCheckOut: TRichEdit
         Left = 8
         Top = 16
-        Width = 213
+        Width = 274
         Height = 386
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
         Font.Name = 'Times New Roman'
         Font.Style = []
-        Lines.Strings = (
-          'RichEdit1')
         ParentFont = False
+        ReadOnly = True
         TabOrder = 0
+      end
+      object btnCheckOrder: TButton
+        Left = 348
+        Top = 242
+        Width = 181
+        Height = 62
+        Caption = 'Order'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 1
+        OnClick = btnCheckOrderClick
       end
     end
   end

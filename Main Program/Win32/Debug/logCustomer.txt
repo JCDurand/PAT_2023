@@ -38,3 +38,9 @@
 2023-08-02 10:37:49; Ashlyn Blackwell logged out.
 2023-08-02 10:40:29; Ashlyn  Blackwell logged in.
 2023-08-02 10:41:29; Ashlyn Blackwell logged out.
+2023/08/02 16:47:54; Gerald Salter logged in.
+2023/08/02 16:48:31; GeraldSalter logged out.
+2023/08/02 18:13:17; Invalid credentials entered.
+2023/08/02 18:13:29; Gerald Salter logged in.
+2023/08/02 18:15:46; Gerald Salter logged in.
+2023/08/02 18:16:34; GeraldSalter logged out.

@@ -1,14 +1,4 @@
 To do:
-Complete product page:
-	add to order
-	check against amount
-	if successful: add to global counter for total price 
-	add to array for display in cart
-
-Complete cart page:
-	update list of items when refresh clicked- sync from array
-	code checkout button: takes to checkout
-
 Complete checkout page:
 	design the GUI
 	provide summary of purchases and total cost
