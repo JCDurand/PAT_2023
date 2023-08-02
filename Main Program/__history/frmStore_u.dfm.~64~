@@ -1165,7 +1165,6 @@ object frmStore: TfrmStore
           EFB919B37FCFEE3DC745DD9EFE1F690F81977CEA1EE90000000049454E44AE42
           6082}
         Stretch = True
-        OnClick = imgCheckoutClick
       end
       object lblCartSubtotal: TLabel
         Left = 360

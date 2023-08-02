@@ -58,6 +58,7 @@ type
     procedure btnView3Click(Sender: TObject);
     procedure btnDetailAddClick(Sender: TObject);
     procedure imgRefreshClick(Sender: TObject);
+    procedure imgCheckoutClick(Sender: TObject);
   private
     { Private declarations }
     rSubTotal: Real;
@@ -298,6 +299,11 @@ begin
   begin
     ShowMessage(arrProducts[I]);
   end;
+end;
+
+procedure TfrmStore.imgCheckoutClick(Sender: TObject);
+begin
+  tbNTBK1.ActivePage := 'Checkout';
 end;
 
 procedure TfrmStore.imgRefreshClick(Sender: TObject);

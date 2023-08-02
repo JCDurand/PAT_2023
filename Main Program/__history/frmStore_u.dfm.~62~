@@ -10,6 +10,7 @@ object frmStore: TfrmStore
   Font.Height = -16
   Font.Name = 'Times New Roman'
   Font.Style = []
+  Position = poDesigned
   OnCreate = formCreate
   OnShow = formShow
   TextHeight = 19
@@ -18,7 +19,6 @@ object frmStore: TfrmStore
     Top = 0
     Width = 633
     Height = 441
-    PageIndex = 2
     TabFont.Charset = DEFAULT_CHARSET
     TabFont.Color = clBtnText
     TabFont.Height = -12
@@ -230,6 +230,19 @@ object frmStore: TfrmStore
         Width = 4
         Height = 19
       end
+      object lblDetailInStock: TLabel
+        Left = 480
+        Top = 194
+        Width = 55
+        Height = 19
+        Caption = 'In Stock:'
+      end
+      object lblDetailStock: TLabel
+        Left = 551
+        Top = 194
+        Width = 4
+        Height = 19
+      end
       object redDetailProd: TRichEdit
         Left = 10
         Top = 214
@@ -260,6 +273,7 @@ object frmStore: TfrmStore
         Height = 25
         Caption = 'Add to order'
         TabOrder = 2
+        OnClick = btnDetailAddClick
       end
     end
     object TTabPage
@@ -269,10 +283,10 @@ object frmStore: TfrmStore
       ExplicitTop = 30
       ExplicitHeight = 407
       object imgRefresh: TImage
-        Left = 264
+        Left = 360
         Top = 16
-        Width = 73
-        Height = 73
+        Width = 49
+        Height = 49
         Picture.Data = {
           0954506E67496D61676589504E470D0A1A0A0000000D49484452000002000000
           02000806000000F478D4FA0000000473424954080808087C0864880000000970
@@ -755,12 +769,13 @@ object frmStore: TfrmStore
           0000000DC4000000400331000000D0400C00000034D0FF03FD1268BB47335D09
           0000000049454E44AE426082}
         Stretch = True
+        OnClick = imgRefreshClick
       end
       object imgCheckout: TImage
-        Left = 264
+        Left = 360
         Top = 110
-        Width = 73
-        Height = 73
+        Width = 49
+        Height = 47
         Picture.Data = {
           0954506E67496D61676589504E470D0A1A0A0000000D49484452000002000000
           02000803000000C3A624C80000000373424954080808DBE14FE0000000097048
@@ -1150,29 +1165,32 @@ object frmStore: TfrmStore
           6082}
         Stretch = True
       end
+      object lblCartSubtotal: TLabel
+        Left = 360
+        Top = 189
+        Width = 60
+        Height = 19
+        Caption = 'Subtotal:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object lblCartSubtotalDis: TLabel
+        Left = 441
+        Top = 189
+        Width = 4
+        Height = 19
+      end
       object listBxCart: TListBox
         Left = 8
         Top = 16
-        Width = 233
+        Width = 331
         Height = 386
         ItemHeight = 19
         TabOrder = 0
-      end
-      object btnRefresh: TButton
-        Left = 392
-        Top = 32
-        Width = 97
-        Height = 46
-        Caption = 'Refresh Cart'
-        TabOrder = 1
-      end
-      object btnCheckout: TButton
-        Left = 392
-        Top = 120
-        Width = 97
-        Height = 46
-        Caption = 'Checkout'
-        TabOrder = 2
       end
     end
     object TTabPage

@@ -44,6 +44,8 @@ type
     lblDetailPrice: TLabel;
     lblDetailInStock: TLabel;
     lblDetailStock: TLabel;
+    lblCartSubtotal: TLabel;
+    lblCartSubtotalDis: TLabel;
     procedure formCreate(Sender: TObject);
     procedure bitbitLogoutClick(Sender: TObject);
     procedure btnAccountClick(Sender: TObject);
@@ -55,6 +57,7 @@ type
     procedure btnView2Click(Sender: TObject);
     procedure btnView3Click(Sender: TObject);
     procedure btnDetailAddClick(Sender: TObject);
+    procedure imgRefreshClick(Sender: TObject);
   private
     { Private declarations }
     rSubTotal: Real;
@@ -193,6 +196,7 @@ begin
       rSubTotal := rSubTotal + iAmount*tblProduct['PCost'];
       Inc(iCartCount);
       SetLength(arrCart, iCartCount);
+      arrCart[iCartCount-1] := tblProduct['PName'] + ': ' + IntToStr(iAmount);
     end;
 
 
@@ -240,8 +244,8 @@ begin
   iProdCount := 0;
   imgBack1.Stretch := True;
   imgBack1.Picture.LoadFromFile('Background.jpg');
-  imgBack2.Stretch := True;
-  imgBack2.Picture.LoadFromFile('Background.jpg');
+  {imgBack2.Stretch := True;
+    imgBack2.Picture.LoadFromFile('Background.jpg');}
   imgBack3.Stretch := True;
   imgBack3.Picture.LoadFromFile('Background.jpg');
 
@@ -294,6 +298,25 @@ begin
   begin
     ShowMessage(arrProducts[I]);
   end;
+end;
+
+procedure TfrmStore.imgRefreshClick(Sender: TObject);
+var
+  I: Integer;
+begin
+  listBxCart.Clear;
+
+  if iCartCount = 0 then
+  begin
+    ShowMessage('Please add products to the cart.');
+    Exit;
+  end;
+  for I := 1 to iCartCount do
+  begin
+    listBxCart.Items.Add(arrCart[I-1]);
+  end;
+
+  lblCartSubtotalDis.Caption := FormatFloat('R0.00', rSubTotal);
 end;
 
 procedure TfrmStore.loadProdDetail;
