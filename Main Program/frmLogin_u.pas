@@ -73,6 +73,7 @@ begin
         bFlag := True;
         sName := objCustomer.getName;
         sSurName := objCustomer.getSurName;
+        sUser := objCustomer.getCID;
       end //IF
 
   end;  //FOR
@@ -82,7 +83,6 @@ begin
       ShowMessage('Welcome, ' + sName);
       frmLogin.Hide;
       frmStore.Show;
-      sUser := sName + sSurName;
       frmTFile_u.frmTFile.addCustLine(sName + ' ' + sSurName + ' logged in.');
     end
   else

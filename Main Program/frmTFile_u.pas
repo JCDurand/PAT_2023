@@ -16,6 +16,7 @@ type
   public
     { Public declarations }
     procedure addCustLine(sLine: String);
+    procedure addOrderLine(sLine: String);
   end;
 
 var
@@ -38,6 +39,17 @@ begin
 end;
 
 
+procedure TfrmTFile.addOrderLine(sLine: String);
+var
+  sWrite: String;
+begin
+  AssignFile(tOrdFile, 'logOrder.txt');
+  Append(tOrdFile);
+
+  sWrite := DateTimeToStr(NOW)+ ': ' + sLine;
+
+end;
+
 procedure TfrmTFile.formCreate(Sender: TObject);
 begin
   if NOT FileExists('logCustomer.txt') then
@@ -47,6 +59,12 @@ begin
     CloseFile(tCustFile);
   end;  //IF
 
+  if NOT FileExists('logOrder.txt') then
+  begin
+    AssignFile(tOrdFile, 'logOrder.txt');
+    Rewrite(tOrdFile);
+    CloseFile(tOrdFile);
+  end;  //IF
 end;
 
 end.

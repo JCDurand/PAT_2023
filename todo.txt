@@ -1,10 +1,4 @@
 To do:
-Complete checkout page:
-	design the GUI
-	provide summary of purchases and total cost
-	if successful: create order, may need multiple per product
-	add to log
-	
 Complete customer form:
 	design the GUI
 	provide system to see past orders
@@ -22,3 +16,5 @@ create admin form:
 	dbgrids with all information
 	log viewing page
 	add to log
+	
+calcuslater@dijkstra.com

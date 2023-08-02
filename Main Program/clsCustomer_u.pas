@@ -19,6 +19,7 @@ type
     function getPass: String;
     function getName: String;
     function getSurName: String;
+    function getCID: String;
 
 end;
 
@@ -43,6 +44,11 @@ begin
   fCardNum := sCardNum;
   fBankNum := sBankNum;
   fPassword := sPassword
+end;
+
+function TCustomer.getCID: String;
+begin
+  Result := fCID;
 end;
 
 function TCustomer.getEmail: String;

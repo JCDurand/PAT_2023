@@ -8,7 +8,7 @@ uses
   JPEG, Vcl.StdCtrls, Vcl.Buttons, ADODB, Data.DB,
   frmCustomer_u, frmTFile_u, dmTest_u,
   clsProduct_u, Vcl.ComCtrls, Vcl.TabNotBk, Vcl.Samples.Spin,
-  Vcl.Imaging.pngimage;
+  Vcl.Imaging.pngimage, Vcl.WinXCalendars;
 
 type
   TfrmStore = class(TForm)
@@ -32,8 +32,8 @@ type
     img3: TImage;
     pnlTitle: TPanel;
     listBxCart: TListBox;
-    imgRefresh: TImage;
-    imgCheckout: TImage;
+    imgCartRefresh: TImage;
+    imgCartCheckout: TImage;
     imgBack3: TImage;
     redDetailProd: TRichEdit;
     imgDetailProd: TImage;
@@ -56,6 +56,9 @@ type
     lblCheckShipDis: TLabel;
     lblCheckGrandDis: TLabel;
     btnCheckOrder: TButton;
+    calPickCheck: TCalendarPicker;
+    lblCheckDate: TLabel;
+    imgCartClear: TImage;
     procedure formCreate(Sender: TObject);
     procedure bitbitLogoutClick(Sender: TObject);
     procedure btnAccountClick(Sender: TObject);
@@ -67,16 +70,17 @@ type
     procedure btnView2Click(Sender: TObject);
     procedure btnView3Click(Sender: TObject);
     procedure btnDetailAddClick(Sender: TObject);
-    procedure imgRefreshClick(Sender: TObject);
-    procedure imgCheckoutClick(Sender: TObject);
+    procedure imgCartRefreshClick(Sender: TObject);
+    procedure imgCartCheckoutClick(Sender: TObject);
     procedure btnCheckOrderClick(Sender: TObject);
+    procedure imgCartClearClick(Sender: TObject);
   private
     { Private declarations }
-    rSubTotal, rGrandTotal: Real;
-    iAmount: Integer;
+    rSubTotal, rGrandTotal: Real; //vars for price calculation
+    iAmount: Integer; //global counter for amount of specific product selected
     iCartCount: Byte; //global counter for products in cart
-
-    arrCart: Array of String;
+    arrCartName: Array of String; //array for storing names of products in cart
+    arrCartAmount: Array of Integer;  //array for storing amounts of products in cart
 
     procedure nextRecordSet;
     procedure previousRecordSet;
@@ -84,7 +88,7 @@ type
   public
     { Public declarations }
     iProdCount: Integer;  //global public counter for products in database
-    arrProducts: Array[1..3] of String; //array fr storing products selected
+    arrProducts: Array[1..3] of String; //array for storing products selected
   end;
 
 var
@@ -197,15 +201,29 @@ begin
 
   with dmTest do
   begin
-    for I := 0 to iProdCount-1 do
+    for I := 0 to iCartCount-1 do
     begin
-      tblProduct.Locate('PID', arrProducts[I], [loCaseInsensitive]);
+      tblProduct.Locate('PID', arrCartName[I], [loCaseInsensitive]);
 
       tblProduct.Edit;
-      tblProduct['PAmount'] := tblProduct['PAmount']- iAmount;
+      tblProduct['PAmount'] := tblProduct['PAmount']- arrCartAmount[I];
       tblProduct.Post;
     end;  //FOR
 
+    for I := 1 to iCartCount do
+    begin
+      tblOrders.Last;
+      tblOrders.Insert;
+
+      tblProduct.Locate('PID', arrCartName[I-1], [loCaseInsensitive]);
+      tblOrders['OProduct'] := arrCartName[I-1];
+      tblOrders['OSupplier'] := tblProduct['PSupplier'];
+      tblOrders['OCustomer'] := frmLogin.sUser;
+      tblOrders['OAmount'] := arrCartAmount[I-1];
+      tblOrders['ODevDate'] := calPickCheck.Date;
+
+      tblOrders.Post;
+    end;
     end;  //WITH
 
 end;
@@ -227,15 +245,19 @@ begin
       ShowMessage('Amount selected greater than what is in stock.');
       sedDetailAmount.Value := 0;
       sedDetailAmount.SetFocus;
-    end
+    end //IF
     else
     begin
 
       rSubTotal := rSubTotal + iAmount*tblProduct['PCost'];
       Inc(iCartCount);
-      SetLength(arrCart, iCartCount);
-      arrCart[iCartCount-1] := tblProduct['PName'] + ': ' + IntToStr(iAmount);
-    end;
+      SetLength(arrCartName, iCartCount);
+      SetLength(arrCartAmount, iCartCount);
+      arrCartName[iCartCount-1] := tblProduct['PID'];
+      arrCartAmount[iCartCount-1] := iAmount;
+
+      frmTFile.addOrderLine(frmLogin.sUser + ' has placed an order.');
+    end;  //ELSE
 
 
   end;  //WITH
@@ -310,7 +332,8 @@ begin
   iCartCount := 0;
   rSubTotal := 0;
 
-  SetLength(arrCart, 1);
+  SetLength(arrCartName, 1);
+  SetLength(arrCartAmount, 1);
 
   with dmTest do
   begin
@@ -332,13 +355,9 @@ begin
 
   end;
 
-  for i := 1 to 3 do
-  begin
-    ShowMessage(arrProducts[I]);
-  end;
 end;
 
-procedure TfrmStore.imgCheckoutClick(Sender: TObject);
+procedure TfrmStore.imgCartCheckoutClick(Sender: TObject);
 begin
   tbNTBK1.ActivePage := 'Checkout';
 
@@ -353,7 +372,23 @@ begin
 
 end;
 
-procedure TfrmStore.imgRefreshClick(Sender: TObject);
+procedure TfrmStore.imgCartClearClick(Sender: TObject);
+begin
+  redDetailProd.Clear;
+  listBxCart.Clear;
+
+  rSubTotal := 0;
+  rGrandTotal := 0;
+  iAmount := 0;
+  iCartCount := 0;
+  SetLength(arrCartName, 0);
+  SetLength(arrCartName, 1);
+  SetLength(arrCartAmount, 0);
+  SetLength(arrCartAmount, 1);
+
+end;
+
+procedure TfrmStore.imgCartRefreshClick(Sender: TObject);
 var
   I: Integer;
 begin
@@ -367,9 +402,14 @@ begin
   end;
   for I := 1 to iCartCount do
   begin
-    listBxCart.Items.Add(arrCart[I-1]);
-    redCheckOut.Lines.Add(arrCart[I-1]);
+    with dmTest do
+    begin
+      tblProduct.Locate('PID', arrCartName[I-1], [loCaseInsensitive]);
+      listBxCart.Items.Add(tblProduct['PName'] + ': ' + IntToStr(arrCartAmount[I-1]));
+      redCheckOut.Lines.Add(tblProduct['PName'] + ': ' + IntToStr(arrCartAmount[I-1]));
+    end;
   end;
+
 
   lblCartSubtotalDis.Caption := FormatFloat('R0.00', rSubTotal);
 end;

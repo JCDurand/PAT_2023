@@ -47,9 +47,6 @@ Coordinates=543,212,105,58
 [btnView3]
 Coordinates=342,280,67,58
 
-[imgCheckout]
-Coordinates=10,280,89,58
-
 [lbl3]
 Coordinates=208,212,49,58
 
@@ -83,9 +80,6 @@ Coordinates=598,280,93,36
 [btnNext]
 Coordinates=556,144,59,58
 
-[imgRefresh]
-Coordinates=124,144,80,58
-
 [lblDetailPrice]
 Coordinates=10,212,90,58
 
@@ -103,4 +97,10 @@ Coordinates=224,10,104,58
 
 []
 Coordinates=654,155,91,36
+
+[imgCartCheckout]
+Coordinates=10,280,89,58
+
+[imgCartRefresh]
+Coordinates=124,144,80,58
 
