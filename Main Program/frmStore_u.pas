@@ -7,7 +7,8 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls,
   JPEG, Vcl.StdCtrls, Vcl.Buttons, ADODB,
   frmCustomer_u, frmTFile_u, dmTest_u,
-  clsProduct_u, Vcl.ComCtrls, Vcl.TabNotBk, Vcl.Samples.Spin;
+  clsProduct_u, Vcl.ComCtrls, Vcl.TabNotBk, Vcl.Samples.Spin,
+  Vcl.Imaging.pngimage;
 
 type
   TfrmStore = class(TForm)
@@ -33,9 +34,6 @@ type
     listBxCart: TListBox;
     imgRefresh: TImage;
     imgCheckout: TImage;
-    btnRefresh: TButton;
-    btnCheckout: TButton;
-    imgBack2: TImage;
     imgBack3: TImage;
     redDetailProd: TRichEdit;
     imgDetailProd: TImage;
@@ -44,6 +42,10 @@ type
     lblDetailAmount: TLabel;
     btnDetailAdd: TButton;
     lblDetailPrice: TLabel;
+    lblDetailInStock: TLabel;
+    lblDetailStock: TLabel;
+    lblCartSubtotal: TLabel;
+    lblCartSubtotalDis: TLabel;
     procedure formCreate(Sender: TObject);
     procedure bitbitLogoutClick(Sender: TObject);
     procedure btnAccountClick(Sender: TObject);
@@ -54,15 +56,22 @@ type
     procedure btnView1Click(Sender: TObject);
     procedure btnView2Click(Sender: TObject);
     procedure btnView3Click(Sender: TObject);
+    procedure btnDetailAddClick(Sender: TObject);
+    procedure imgRefreshClick(Sender: TObject);
   private
     { Private declarations }
+    rSubTotal: Real;
+    iCartCount: Byte; //global counter for products in cart
+
+    arrCart: Array of String;
+
     procedure nextRecordSet;
     procedure previousRecordSet;
     procedure loadProdDetail;
   public
     { Public declarations }
     iProdCount: Integer;  //global public counter for products in database
-    arrProducts: Array[1..3] of String;
+    arrProducts: Array[1..3] of String; //array fr storing products selected
   end;
 
 var
@@ -100,6 +109,8 @@ begin
     imgDetailProd.Stretch := True;
     imgDetailProd.Picture.LoadFromFile('Products\' + arrProducts[1] + '.jpg');
     lblDetailAmount.Caption := FormatFloat('R0.00', tblProduct['PCost']);
+    lblDetailStock.Caption := IntToStr(tblProduct['PAmount']);
+
     tbNTBK1.ActivePage := 'Product';
   end;  //WITH
 end;
@@ -121,6 +132,8 @@ begin
     imgDetailProd.Stretch := True;
     imgDetailProd.Picture.LoadFromFile('Products\' + arrProducts[2] + '.jpg');
     lblDetailAmount.Caption := FormatFloat('R0.00', tblProduct['PCost']);
+    lblDetailStock.Caption := IntToStr(tblProduct['PAmount']);
+
     tbNTBK1.ActivePage := 'Product';
   end;  //WITH
 end;
@@ -142,6 +155,8 @@ begin
     imgDetailProd.Stretch := True;
     imgDetailProd.Picture.LoadFromFile('Products\' + arrProducts[3] + '.jpg');
     lblDetailAmount.Caption := FormatFloat('R0.00', tblProduct['PCost']);
+    lblDetailStock.Caption := IntToStr(tblProduct['PAmount']);
+
     tbNTBK1.ActivePage := 'Product';
   end;  //WITH
 end;
@@ -150,6 +165,43 @@ procedure TfrmStore.btnAccountClick(Sender: TObject);
 begin
   frmStore.Hide;
   frmCustomer.Show;
+end;
+
+procedure TfrmStore.btnDetailAddClick(Sender: TObject);
+var
+  iAmount: Integer;
+begin
+  if sedDetailAmount.Value = 0 then
+  begin
+    ShowMessage('Please select some products.');
+    Exit;
+  end;
+
+  iAmount := sedDetailAmount.Value;
+
+  with dmTest do
+  begin
+    if iAmount > tblProduct['PAmount'] then
+    begin
+      ShowMessage('Amount selected greater than what is in stock.');
+      sedDetailAmount.Value := 0;
+      sedDetailAmount.SetFocus;
+    end
+    else
+    begin
+      tblProduct.Edit;
+      tblProduct['PAmount'] := tblProduct['PAmount']- iAmount;
+      tblProduct.Post;
+
+      rSubTotal := rSubTotal + iAmount*tblProduct['PCost'];
+      Inc(iCartCount);
+      SetLength(arrCart, iCartCount);
+      arrCart[iCartCount-1] := tblProduct['PName'] + ': ' + IntToStr(iAmount);
+    end;
+
+
+  end;  //WITH
+
 end;
 
 procedure TfrmStore.btnNextClick(Sender: TObject);
@@ -192,8 +244,8 @@ begin
   iProdCount := 0;
   imgBack1.Stretch := True;
   imgBack1.Picture.LoadFromFile('Background.jpg');
-  imgBack2.Stretch := True;
-  imgBack2.Picture.LoadFromFile('Background.jpg');
+  {imgBack2.Stretch := True;
+    imgBack2.Picture.LoadFromFile('Background.jpg');}
   imgBack3.Stretch := True;
   imgBack3.Picture.LoadFromFile('Background.jpg');
 
@@ -217,6 +269,10 @@ var
   i: Integer;
 begin
   iCount := 0;
+  iCartCount := 0;
+  rSubTotal := 0;
+
+  SetLength(arrCart, 1);
 
   with dmTest do
   begin
@@ -242,6 +298,25 @@ begin
   begin
     ShowMessage(arrProducts[I]);
   end;
+end;
+
+procedure TfrmStore.imgRefreshClick(Sender: TObject);
+var
+  I: Integer;
+begin
+  listBxCart.Clear;
+
+  if iCartCount = 0 then
+  begin
+    ShowMessage('Please add products to the cart.');
+    Exit;
+  end;
+  for I := 1 to iCartCount do
+  begin
+    listBxCart.Items.Add(arrCart[I-1]);
+  end;
+
+  lblCartSubtotalDis.Caption := FormatFloat('R0.00', rSubTotal);
 end;
 
 procedure TfrmStore.loadProdDetail;
