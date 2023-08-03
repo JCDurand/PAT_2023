@@ -226,6 +226,7 @@ begin
     end;
     end;  //WITH
 
+  frmTFile.addOrderLine(frmLogin.sUser + ' has placed and order.');
   ShowMessage('Order placed.');
 end;
 

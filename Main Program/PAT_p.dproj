@@ -98,10 +98,6 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="frmMain_u.pas">
-            <Form>frmPAT</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="..\Populate\dmTest_u.pas">
             <Form>dmTest</Form>
             <FormType>dfm</FormType>
@@ -136,6 +132,10 @@
         </DCCReference>
         <DCCReference Include="frmTFile_u.pas">
             <Form>frmTFile</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="frmAdmin_u.pas">
+            <Form>frmAdmin</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

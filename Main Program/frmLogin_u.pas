@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.Mask, Vcl.ExtCtrls,
-  frmRegister_u, dmTest_u, frmCustomer_u, frmSupplier_u, frmStore_u, frmTFile_u,
+  frmRegister_u, dmTest_u, frmCustomer_u, frmSupplier_u, frmStore_u, frmTFile_u, frmAdmin_u,
   clsSupplier_u, clsCustomer_u,
   JPEG, Data.DB, Vcl.Grids, Vcl.DBGrids, Vcl.Imaging.pngimage;
 
@@ -58,22 +58,30 @@ procedure TfrmLogin.bitbtnLoginClick(Sender: TObject);
 var
   I: Integer;
   sEmail, sPW, sName, sSurName: String;
-  bFlag, bFlag2: Boolean;
+  bFlag, bFlag2, bFlag3: Boolean;
 begin
   sEmail := ledUsername.Text;
   sPW := ledPass.Text;
   bFlag := False;
   bFlag2 := False;
+  bFlag3 := False;
+
+  dmtest.tblSupplier.Locate('SEmail', sEmail, [loCaseInsensitive]);
 
   with dmTest do
   begin
-    if tblSupplier.Locate('SEmail', sEmail, [loCaseInsensitive]) then
+
+
+    if (tblSupplier['SPassword'] = sPW) AND (tblSupplier['SEmail'] = sEmail)  then
     begin
       bFlag2 := True;
       sUser := tblSupplier['SID'];
       sName := tblSupplier['SFirstName'];
       sSurName := tblSupplier['SLastName'];
-
+    end
+    else if (sEmail = 'admin@mail.com') AND (tblCustomers['CPassword'] = sPW)   then
+    begin
+      bFlag3 := True;
     end;
 
   end;
@@ -93,7 +101,14 @@ begin
 
   end;  //FOR
 
-  if bFlag then
+  if bflag3 then
+  begin
+    ShowMessage('Welcome, admin');
+    frmLogin.Hide;
+    frmAdmin.Show;
+    frmTFile.addSupLine('Admin has logged in.');
+  end
+  else if bFlag then
     begin
       ShowMessage('Welcome, ' + sName);
       frmLogin.Hide;

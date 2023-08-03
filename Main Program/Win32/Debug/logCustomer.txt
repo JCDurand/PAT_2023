@@ -96,3 +96,5 @@
 2023/08/03 23:12:16; Invalid credentials entered.
 2023/08/03 23:12:55; Ashlyn  Blackwell logged in.
 2023/08/03 23:13:41; ABlackwell930 logged out.
+2023/08/04 00:10:34; admin admin logged in.
+2023/08/04 00:11:39; Invalid credentials entered.

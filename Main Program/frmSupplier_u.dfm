@@ -27,13 +27,12 @@ object frmSupplier: TfrmSupplier
       Left = 4
       Top = 26
       Caption = 'Details'
-      ExplicitWidth = 292
-      ExplicitHeight = 220
       object dbgInfo: TDBGrid
         Left = 8
         Top = 8
         Width = 609
         Height = 120
+        ReadOnly = True
         TabOrder = 0
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
@@ -104,10 +103,6 @@ object frmSupplier: TfrmSupplier
       Left = 4
       Top = 26
       Caption = 'Products'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object lblCat: TLabel
         Left = 152
         Top = 146
@@ -149,6 +144,7 @@ object frmSupplier: TfrmSupplier
         Top = 8
         Width = 609
         Height = 120
+        ReadOnly = True
         TabOrder = 3
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText

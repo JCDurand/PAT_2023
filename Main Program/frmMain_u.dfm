@@ -2,8 +2,8 @@ object frmMain: TfrmMain
   Left = 0
   Top = 0
   Caption = 'PAT'
-  ClientHeight = 440
-  ClientWidth = 620
+  ClientHeight = 439
+  ClientWidth = 616
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,7 +16,7 @@ object frmMain: TfrmMain
     Top = 224
     Width = 113
     Height = 25
-    Caption = 'Show Populate From'
+    Caption = 'Show Populate Form'
     TabOrder = 0
     OnClick = btnShowFromClick
   end
