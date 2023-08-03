@@ -1,4 +1,6 @@
 arden_tremblay@yahoo.com
 
-Project PAT_p.exe raised exception class EOleException with message 'Current provider does not support returning multiple recordsets from a single execution'.
-Project PAT_p.exe raised exception class EDatabaseError with message 'CommandText does not return a result set'.
+chaz@upcycle.green
+adrien@ekosell.jp
+
+C:\Users\Jean Durand\Pictures\Crabsquid.jpg

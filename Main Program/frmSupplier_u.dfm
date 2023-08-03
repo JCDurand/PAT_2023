@@ -10,13 +10,13 @@ object frmSupplier: TfrmSupplier
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OnShow = frmShow
   TextHeight = 15
   object tbNtbk1: TTabbedNotebook
     Left = 0
     Top = 1
     Width = 633
     Height = 440
-    PageIndex = 1
     TabFont.Charset = DEFAULT_CHARSET
     TabFont.Color = clBtnText
     TabFont.Height = -12
@@ -29,6 +29,76 @@ object frmSupplier: TfrmSupplier
       Caption = 'Details'
       ExplicitWidth = 292
       ExplicitHeight = 220
+      object dbgInfo: TDBGrid
+        Left = 8
+        Top = 8
+        Width = 609
+        Height = 120
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -12
+        TitleFont.Name = 'Segoe UI'
+        TitleFont.Style = []
+      end
+      object ledEmail: TLabeledEdit
+        Left = 25
+        Top = 167
+        Width = 121
+        Height = 23
+        EditLabel.Width = 75
+        EditLabel.Height = 15
+        EditLabel.Caption = 'Email address:'
+        TabOrder = 1
+        Text = ''
+      end
+      object ledPhone: TLabeledEdit
+        Left = 231
+        Top = 167
+        Width = 121
+        Height = 23
+        EditLabel.Width = 82
+        EditLabel.Height = 15
+        EditLabel.Caption = 'Phone number:'
+        TabOrder = 2
+        Text = ''
+      end
+      object ledPass: TLabeledEdit
+        Left = 448
+        Top = 167
+        Width = 121
+        Height = 23
+        EditLabel.Width = 53
+        EditLabel.Height = 15
+        EditLabel.Caption = 'Password:'
+        TabOrder = 3
+        Text = ''
+      end
+      object btnEmail: TButton
+        Left = 25
+        Top = 215
+        Width = 121
+        Height = 25
+        Caption = 'Update'
+        TabOrder = 4
+        OnClick = btnEmailClick
+      end
+      object btnPhone: TButton
+        Left = 231
+        Top = 215
+        Width = 121
+        Height = 25
+        Caption = 'Update'
+        TabOrder = 5
+      end
+      object btnPass: TButton
+        Left = 448
+        Top = 215
+        Width = 121
+        Height = 25
+        Caption = 'Update'
+        TabOrder = 6
+      end
     end
     object TTabPage
       Left = 4
@@ -38,95 +108,117 @@ object frmSupplier: TfrmSupplier
       ExplicitTop = 0
       ExplicitWidth = 0
       ExplicitHeight = 0
-      object Button2: TButton
-        Left = 448
-        Top = 166
+      object lblCat: TLabel
+        Left = 152
+        Top = 146
+        Width = 96
+        Height = 15
+        Caption = 'Product Category:'
+      end
+      object btnAddProd: TButton
+        Left = 8
+        Top = 279
         Width = 121
         Height = 73
-        Caption = 'Button1'
+        Caption = 'Add Product'
         TabOrder = 0
+        OnClick = btnAddProdClick
       end
-      object Button3: TButton
-        Left = 152
-        Top = 303
-        Width = 75
-        Height = 25
-        Caption = 'Button1'
+      object btnDeleteProd: TButton
+        Left = 448
+        Top = 279
+        Width = 121
+        Height = 73
+        Caption = 'Delete Product'
         TabOrder = 1
+        OnClick = btnDeleteProdClick
       end
-      object LabeledEdit1: TLabeledEdit
+      object ledPName: TLabeledEdit
         Left = 8
         Top = 168
         Width = 121
         Height = 23
-        EditLabel.Width = 67
+        EditLabel.Width = 80
         EditLabel.Height = 15
-        EditLabel.Caption = 'LabeledEdit1'
+        EditLabel.Caption = 'Product Name:'
         TabOrder = 2
         Text = ''
       end
-      object LabeledEdit3: TLabeledEdit
-        Left = 8
-        Top = 216
-        Width = 121
-        Height = 23
-        EditLabel.Width = 67
-        EditLabel.Height = 15
-        EditLabel.Caption = 'LabeledEdit1'
-        TabOrder = 3
-        Text = ''
-      end
-      object DBGrid1: TDBGrid
+      object dbgProd: TDBGrid
         Left = 8
         Top = 8
         Width = 609
         Height = 120
-        TabOrder = 4
+        TabOrder = 3
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
         TitleFont.Height = -12
         TitleFont.Name = 'Segoe UI'
         TitleFont.Style = []
       end
-      object ComboBox1: TComboBox
+      object cmbCat: TComboBox
         Left = 152
         Top = 167
         Width = 121
         Height = 23
-        TabOrder = 5
-        Text = 'ComboBox1'
+        TabOrder = 4
+        Items.Strings = (
+          'Appliances'
+          'Cleaning'
+          'Coffee'
+          'Containers'
+          'Kitchenware'
+          'Linen'
+          'Personal Hygiene')
       end
-      object SpinEdit1: TSpinEdit
+      object sedAmount: TSpinEdit
         Left = 293
         Top = 167
         Width = 44
         Height = 24
         MaxValue = 0
         MinValue = 0
-        TabOrder = 6
+        TabOrder = 5
         Value = 0
       end
-      object LabeledEdit2: TLabeledEdit
+      object ledPCost: TLabeledEdit
         Left = 152
         Top = 218
         Width = 121
         Height = 23
-        EditLabel.Width = 67
+        EditLabel.Width = 72
         EditLabel.Height = 15
-        EditLabel.Caption = 'LabeledEdit1'
-        TabOrder = 7
+        EditLabel.Caption = 'Product Cost:'
+        TabOrder = 6
         Text = ''
       end
-      object LabeledEdit4: TLabeledEdit
-        Left = 293
+      object ledPDescript: TLabeledEdit
+        Left = 8
         Top = 216
         Width = 121
         Height = 23
-        EditLabel.Width = 67
+        EditLabel.Width = 108
         EditLabel.Height = 15
-        EditLabel.Caption = 'LabeledEdit4'
-        TabOrder = 8
+        EditLabel.Caption = 'Product Description:'
+        TabOrder = 7
         Text = ''
+      end
+      object btnModAm: TButton
+        Left = 231
+        Top = 279
+        Width = 121
+        Height = 73
+        Caption = 'Modify amount'
+        TabOrder = 8
+        OnClick = btnModAmClick
+      end
+      object btnRefresh: TButton
+        Left = 486
+        Top = 190
+        Width = 75
+        Height = 25
+        Caption = 'Refresh'
+        TabOrder = 9
       end
     end
   end

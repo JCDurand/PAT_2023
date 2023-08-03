@@ -15,11 +15,14 @@ type
     { Public declarations }
     conTest: TADOConnection;
     tblCustomers, tblOrders, tblSupplier, tblProduct: TADOTable;
-    dscCustomers, dscOrders, dscSupplier, dscProduct: TDataSource;
-    qryA, qryB: TADOQuery;
+    dscCustomers, dscOrders, dscSupplier, dscProduct,
+    qdscProd, qdscSup: TDataSource;
+    qryA, qryB, qryProd, qrySup: TADOQuery;
 
     procedure runSQL(sSQL: String);
     procedure runSQL2(sSQL: String);
+    procedure runSQLSup(sSQL: String);
+    procedure runSQLProd(sSQL: String);
   end;
 
 var
@@ -36,6 +39,8 @@ begin
   conTest := TADOConnection.Create(dmTest);
   qryA := TADOQuery.Create(dmTest);
   qryB := TADOQuery.Create(dmTest);
+  qryProd := TADOQuery.Create(dmTest);
+  qrySup := TADOQuery.Create(dmTest);
 
   tblCustomers := TADOTable.Create(dmTest);
   tblOrders := TADOTable.Create(dmTest);
@@ -46,6 +51,8 @@ begin
   dscOrders := TDataSource.Create(dmTest);
   dscSupplier := TDataSource.Create(dmTest);
   dscProduct := TDataSource.Create(dmTest);
+  qdscProd := TDataSource.Create(dmTest);
+  qdscSup := TDataSource.Create(dmTest);
 
   conTest.Close;
   conTest.ConnectionString := 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source = ' + ExtractFilePath(ParamStr(0)) + 'PAT_Base.mdb' + ';Persist Security Info = False';
@@ -54,6 +61,8 @@ begin
 
   qryA.Connection := conTest;
   qryB.Connection := conTest;
+  qryProd.Connection := conTest;
+  qrySup.Connection := conTest;
 
   tblCustomers.Connection := conTest;
   tblOrders.Connection := conTest;
@@ -69,6 +78,9 @@ begin
   dscOrders.DataSet := tblOrders;
   dscSupplier.DataSet := tblSupplier;
   dscProduct.DataSet := tblProduct;
+
+  qdscProd.DataSet := qryProd;
+  qdscSup.DataSet := qrySup;
 
   tblCustomers.Open;
   tblOrders.Open;
@@ -94,7 +106,31 @@ begin
   begin
     qryB.Close;
     qryB.SQL.Text := sSQL;
-    qryB.ExecSQL;
+    qryB.Open;
+  end
+  else
+    ShowMessage('No SQL statement entered.');
+end;
+
+procedure TdmTest.runSQLProd(sSQL: String);
+begin
+  if Length(sSQL) <> 0 then
+  begin
+    qryProd.Close;
+    qryProd.SQL.Text := sSQL;
+    qryProd.Open;
+  end
+  else
+    ShowMessage('No SQL statement entered.');
+end;
+
+procedure TdmTest.runSQLSup(sSQL: String);
+begin
+  if Length(sSQL) <> 0 then
+  begin
+    qrySup.Close;
+    qrySup.SQL.Text := sSQL;
+    qrySup.Open;
   end
   else
     ShowMessage('No SQL statement entered.');

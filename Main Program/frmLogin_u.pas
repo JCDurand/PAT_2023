@@ -73,6 +73,7 @@ begin
       sUser := tblSupplier['SID'];
       sName := tblSupplier['SFirstName'];
       sSurName := tblSupplier['SLastName'];
+
     end;
 
   end;
@@ -98,8 +99,6 @@ begin
       frmLogin.Hide;
       frmStore.Show;
       frmTFile_u.frmTFile.addCustLine(sName + ' ' + sSurName + ' logged in.');
-      //TEST
-      ShowMessage(sUser);
     end
   else if bFlag2 then
   begin
