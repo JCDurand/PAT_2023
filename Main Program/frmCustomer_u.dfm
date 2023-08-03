@@ -14,9 +14,9 @@ object frmCustomer: TfrmCustomer
   TextHeight = 15
   object imgBack: TImage
     Left = -5
-    Top = 1
-    Width = 625
-    Height = 449
+    Top = 0
+    Width = 638
+    Height = 450
   end
   object lblCountry: TLabel
     Left = 200
@@ -33,16 +33,17 @@ object frmCustomer: TfrmCustomer
     Caption = 'Select a payment method:'
   end
   object bitbtnCancel: TBitBtn
-    Left = 537
-    Top = 409
+    Left = 521
+    Top = 399
     Width = 83
     Height = 25
     Kind = bkCancel
     NumGlyphs = 2
     TabOrder = 0
+    OnClick = bitbtnCancelClick
   end
   object bitbtnUpdate: TBitBtn
-    Left = 230
+    Left = 215
     Top = 399
     Width = 123
     Height = 25
@@ -50,6 +51,7 @@ object frmCustomer: TfrmCustomer
     Kind = bkOK
     NumGlyphs = 2
     TabOrder = 1
+    OnClick = bitbtnUpdateClick
   end
   object cmbCountry: TComboBox
     Left = 200
@@ -188,7 +190,7 @@ object frmCustomer: TfrmCustomer
     NumbersOnly = True
     TabOrder = 9
     Text = ''
-    OnExit = ledCostCode
+    OnExit = ledPostExit
   end
   object ledPW: TLabeledEdit
     Left = 16

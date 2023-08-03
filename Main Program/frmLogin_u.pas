@@ -84,6 +84,8 @@ begin
       frmLogin.Hide;
       frmStore.Show;
       frmTFile_u.frmTFile.addCustLine(sName + ' ' + sSurName + ' logged in.');
+      //TEST
+      ShowMessage(sUser);
     end
   else
     begin

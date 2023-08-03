@@ -79,7 +79,7 @@ begin
   begin
     qryA.Close;
     qryA.SQL.Text := sSQL;
-    qryA.Open;
+    qryA.ExecSQL;
   end
   else
     ShowMessage('No SQL statement entered.');

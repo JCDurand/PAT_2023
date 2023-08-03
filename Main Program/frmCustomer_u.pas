@@ -40,7 +40,9 @@ type
     procedure ledEmailExit(Sender: TObject);
     procedure ledPwConfExit(Sender: TObject);
     procedure ledPwExit(Sender: TObject);
-    procedure ledCostCode(Sender: TObject);
+    procedure ledPostExit(Sender: TObject);
+    procedure bitbtnCancelClick(Sender: TObject);
+    procedure bitbtnUpdateClick(Sender: TObject);
   private
     { Private declarations }
     sPassCheck: String;
@@ -57,7 +59,7 @@ var
 implementation
 
 uses
-  frmLogin_u;
+  frmLogin_u, frmStore_u;
 
 {$R *.dfm}
 
@@ -66,13 +68,41 @@ begin
   frmCustomer.arrCustomer[frmCustomer.iCusCount -1] := objCustomer;
 end;
 
+procedure TfrmCustomer.bitbtnCancelClick(Sender: TObject);
+begin
+  frmCustomer.Hide;
+  frmStore.Show;
+end;
+
+procedure TfrmCustomer.bitbtnUpdateClick(Sender: TObject);
+begin
+  if ledPWConf.Text = '' then
+  begin
+    ShowMessage('Please enter a value');
+    Exit;
+  end;
+
+  dmtest.runSQL('UPDATE Customer SET CPassword = ' + QuotedStr(ledPWConf.Text) + ' WHERE CID = ' + QuotedStr(frmLogin.sUser));
+end;
+
 procedure TfrmCustomer.cmbCountryExit(Sender: TObject);
+var
+  sCountry: String;
 begin
   if cmbCountry.ItemIndex = -1 then
     begin
       ShowMessage('Please select a country.');
       cmbCountry.SetFocus;
+      Exit;
     end;
+
+  sCountry := cmbCountry.Items[cmbCountry.ItemIndex];
+
+  with dmTest do
+  begin
+    runSQL('UPDATE Customer SET CCountry = ' + QuotedStr(sCountry) + ' WHERE CID = ' + QuotedStr(frmLogin.sUser));
+  end;
+
 end;
 
 procedure TfrmCustomer.FormCreate(Sender: TObject); //loads customer objects into arrCustomer
@@ -129,7 +159,10 @@ begin
       ShowMessage('Address too long.');
       ledAddress.Clear;
       ledAddress.SetFocus;
+      Exit;
     end;
+
+  dmtest.runSQL('UPDATE Customer SET CAddress = ' + QuotedStr(ledAddress.Text) + ' WHERE CID = ' + QuotedStr(frmLogin.sUser));
 end;
 
 procedure TfrmCustomer.ledBankExit(Sender: TObject);
@@ -165,7 +198,11 @@ begin
       ShowMessage('Bank number may not exceed 16 characters.');
       ledCard.Clear;
       ledCard.SetFocus;
-    end;
+    end
+  else
+    Exit;
+
+  dmTest.runSQL('UPDATE Customer SET CBankAccountNum = ' + QuotedStr(ledBank.Text) + ' WHERE CID = ' + QuotedStr(frmLogin.sUser));
 end;
 
 procedure TfrmCustomer.ledCardExit(Sender: TObject);
@@ -201,7 +238,11 @@ begin
       ShowMessage('Card number may not exceed 16 characters.');
       ledCard.Clear;
       ledCard.SetFocus;
-    end;
+    end
+  else
+    Exit;
+
+  dmTest.runSQL('UPDATE Customer SET CCardNum = ' + QuotedStr(ledCard.Text) + ' WHERE CID = ' + QuotedStr(frmLogin.sUser));
 end;
 
 procedure TfrmCustomer.ledCityExit(Sender: TObject);
@@ -211,17 +252,23 @@ begin
       ShowMessage('City name is too long.');
       ledCity.Clear;
       ledCity.SetFocus;
+      Exit;
     end;
+
+  dmTest.runSQL('UPDATE Customer SET CCity = ' + QuotedStr(ledCity.Text) + ' WHERE CID = ' + QuotedStr(frmLogin.sUser));
 end;
 
-procedure TfrmCustomer.ledCostCode(Sender: TObject);
+procedure TfrmCustomer.ledPostExit(Sender: TObject);
 begin
   if Length(ledPost.Text) > 8 then
     begin
       ShowMessage('Post code is too long.');
       ledPost.Clear;
       ledPost.SetFocus;
+      Exit;
     end;
+
+  dmTest.runSQL('UPDATE Customer SET CPost = ' + QuotedStr(ledPost.Text) + ' WHERE CID = ' + QuotedStr(frmLogin.sUser));
 end;
 
 procedure TfrmCustomer.ledEmailExit(Sender: TObject);
@@ -257,18 +304,22 @@ begin
       ShowMessage('Invalid email entered.');
       ledEmail.Clear;
       ledEmail.SetFocus;
+      Exit;
     end;
+
+  dmtest.runSQL('UPDATE Customer SET CEmail = ' + QuotedStr(ledEmail.Text) + ' WHERE CID = ' + QuotedStr(frmLogin.sUser));
+
 end;
 
 procedure TfrmCustomer.ledPhoneExit(Sender: TObject);
 begin
-  with dmTest do
+  if ledPhone.Text = '' then
   begin
-    prepDB(ledPhone.Text);
-
-    tblCustomers['CPhoneNum'] := ledPhone.Text;
-    tblCustomers.Post;
+    ShowMessage('Please enter a value.');
+    Exit;
   end;
+
+  dmtest.runSQL('UPDATE Customer SET CPhoneNum = ' + QuotedStr(ledPhone.Text) + ' WHERE CID = ' + QuotedStr(frmLogin.sUser));
 end;
 
 procedure TfrmCustomer.ledPwConfExit(Sender: TObject);
@@ -278,7 +329,10 @@ if ledPWConf.Text <> sPassCheck then
       ShowMessage('Passwords do not match.');
       ledPWConf.Clear;
       ledPWConf.SetFocus;
+      Exit;
     end;
+
+
 end;
 
 procedure TfrmCustomer.ledPwExit(Sender: TObject);
