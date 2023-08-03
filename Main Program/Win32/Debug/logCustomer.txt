@@ -65,3 +65,31 @@
 2023-08-03 15:35:08; Invalid credentials entered.
 2023-08-03 15:36:18; Ashlyn  Blackwell logged in.
 2023-08-03 15:37:09; ABlackwell930 logged out.
+2023/08/03 17:30:08; Ashlyn  Blackwell logged in.
+2023/08/03 17:34:39; ABlackwell930 logged out.
+2023/08/03 17:34:58; Ashlyn  Blackwell logged in.
+2023/08/03 17:36:26; ABlackwell930 logged out.
+2023/08/03 17:36:37; Invalid credentials entered.
+2023/08/03 17:42:15; Ashlyn  Blackwell logged in.
+2023/08/03 17:42:45; Sariah  Patrick changed their password.
+2023/08/03 17:42:51; ABlackwell930 logged out.
+2023/08/03 17:43:00; Invalid credentials entered.
+2023/08/03 17:45:36; Invalid credentials entered.
+2023/08/03 17:46:01; Invalid credentials entered.
+2023/08/03 17:46:43; Ashlyn  Blackwell logged in.
+2023/08/03 17:46:50; ABlackwell930 logged out.
+2023/08/03 17:47:40; Ashlyn  Blackwell logged in.
+2023/08/03 17:47:46; ABlackwell930 logged out.
+2023/08/03 17:47:59; Gerald Salter logged in.
+2023/08/03 17:48:12; Sariah  Patrick changed their password.
+2023/08/03 17:48:19; GSalter954 logged out.
+2023/08/03 17:48:32; Invalid credentials entered.
+2023/08/03 17:48:58; Invalid credentials entered.
+2023/08/03 17:50:47; Ashlyn  Blackwell logged in.
+2023/08/03 17:51:08; Sariah  Patrick changed their password.
+2023/08/03 17:51:16; ABlackwell930 logged out.
+2023/08/03 17:51:27; Invalid credentials entered.
+2023/08/03 17:51:46; Invalid credentials entered.
+2023/08/03 17:51:57; Invalid credentials entered.
+2023/08/03 18:12:21; Gerald Salter logged in.
+2023/08/03 18:13:14; Gerald Salter logged in.

@@ -149,6 +149,8 @@ begin
 
 
   SetLength(frmSupplier.arrSupplier, iSupCount);  //initializes dynamic arrays
+
+  frmCustomer.refreshArrCus;
 end;
 
 procedure TfrmLogin.imgPWShowClick(Sender: TObject);

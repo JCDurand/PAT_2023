@@ -19,7 +19,6 @@ object frmStore: TfrmStore
     Top = 0
     Width = 633
     Height = 441
-    PageIndex = 3
     TabFont.Charset = DEFAULT_CHARSET
     TabFont.Color = clBtnText
     TabFont.Height = -12

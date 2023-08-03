@@ -7,10 +7,11 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.TabNotBk,
   Vcl.Mask, Vcl.Buttons, ADODB, DATA.DB,
   dmTest_u,
-  clsCustomer_u;
+  clsCustomer_u, frmTFile_u;
 
 type
   TfrmCustomer = class(TForm)
+    TabbedNotebook1: TTabbedNotebook;
     bitbtnCancel: TBitBtn;
     bitbtnUpdate: TBitBtn;
     cmbCountry: TComboBox;
@@ -28,6 +29,9 @@ type
     ledPWConf: TLabeledEdit;
     pnlInstructions: TPanel;
     rgpPayment: TRadioGroup;
+    redPast: TRichEdit;
+    lblPast: TLabel;
+    btnViewPast: TButton;
     procedure FormCreate(Sender: TObject);
     procedure increaseArraySize;
     procedure addCustomer(objCustomer: TCustomer);
@@ -43,6 +47,9 @@ type
     procedure ledPostExit(Sender: TObject);
     procedure bitbtnCancelClick(Sender: TObject);
     procedure bitbtnUpdateClick(Sender: TObject);
+    procedure rgpPaymentClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure btnViewPastClick(Sender: TObject);
   private
     { Private declarations }
     sPassCheck: String;
@@ -51,6 +58,7 @@ type
     { Public declarations }
     arrCustomer: Array of TCustomer;
     iCusCount: Integer;
+    procedure refreshArrCus;
   end;
 
 var
@@ -83,6 +91,32 @@ begin
   end;
 
   dmtest.runSQL('UPDATE Customer SET CPassword = ' + QuotedStr(ledPWConf.Text) + ' WHERE CID = ' + QuotedStr(frmLogin.sUser));
+
+  dmTest.runSQL('SELECT CFirstName, CLastName FROM Customer WHERE CID = ' + QuotedStr(frmLogin.sUser));
+  with dmTest do
+    frmTFile.addCustLine(tblCustomers['CFirstName'] + ' ' + tblCustomers['CLastName'] + ' changed their password.');
+end;
+
+procedure TfrmCustomer.btnViewPastClick(Sender: TObject);
+var
+  sName: String;
+begin
+  redPast.Clear;
+
+  with dmTest do
+  begin
+    runSQL('SELECT * FROM Orders WHERE OCustomer = ' + QuotedStr(frmLogin.sUser));
+
+    while NOT tblOrders.Eof do
+    begin
+      tblProduct.Locate('PID', tblOrders['OProduct'], [loCaseInsensitive]);
+      sName := tblProduct['PName'];
+
+      redPast.Lines.Add(sName + ': ' + IntToStr(tblOrders['OAmount']));
+      tblOrders.Next;
+    end;
+
+  end;
 end;
 
 procedure TfrmCustomer.cmbCountryExit(Sender: TObject);
@@ -103,49 +137,50 @@ begin
     runSQL('UPDATE Customer SET CCountry = ' + QuotedStr(sCountry) + ' WHERE CID = ' + QuotedStr(frmLogin.sUser));
   end;
 
+  refreshArrCus;
 end;
 
 procedure TfrmCustomer.FormCreate(Sender: TObject); //loads customer objects into arrCustomer
-var
-  I, iCount : Integer;
-  objCustomer: TCustomer;
 begin
-  iCount := 0;
-
-  with dmTest do
-    begin
-      tblCustomers.First;
-      while NOT tblCustomers.Eof do
-        begin
-          Inc(iCusCount);
-          tblCustomers.Next;
-        end;  //WHILE
-
-    end;  //WITH
-
-  SetLength(arrCustomer, iCusCount);
-
-  with dmTest do
-    begin
-      tblCustomers.First;
-
-      while NOT tblCustomers.Eof do
-        begin
-          objCustomer := TCustomer.Create(tblCustomers['CID'], tblCustomers['CFirstName'],
-          tblCustomers['CLastName'],tblCustomers['CPhoneNum'],tblCustomers['CEmail'],tblCustomers['CAddress'],
-          tblCustomers['CCity'],tblCustomers['CPost'],tblCustomers['CCountry'],tblCustomers['CPayMethod'],
-          tblCustomers['CCardNum'],tblCustomers['CBankAccountNum'],tblCustomers['CPassword']);
-
-          arrCustomer[iCount] := objCustomer;  //arrCustomer populated
-
-          Inc(iCount);
-          tblCustomers.Next;
-        end;  //WHILE
-
-    end;  //WITH
-
+  refreshArrCus;
 
 end;
+procedure TfrmCustomer.FormShow(Sender: TObject);
+var
+  sPass: String;
+  bFlag: Boolean;
+begin
+  ledBank.Visible := False;
+  ledCard.Visible := False;
+  sPass := '';
+
+  while bFlag = False do
+  begin
+    with dmTest do
+      begin
+        runSQL('SELECT * FROM Customer WHERE CID = ' + QuotedStr(frmLogin.sUser));
+
+        if tblCustomers['CPassword'] = '1234' then
+        begin
+          sPass := InputBox('Password change', 'Please enter a new password.', '');
+          if (sPass = '') OR (sPass = tblCustomers['CPassword']) then
+          begin
+              ShowMessage('Please enter a new password.');
+              Continue;
+          end;  //IF
+
+      runSQL('UPDATE Customer SET CPassword = ' + QuotedStr(sPass));
+
+    end;  //WITH
+
+      bFlag := True;
+
+  end;  //WHILE
+
+  end;
+
+end;
+
 procedure TfrmCustomer.increaseArraySize;
 begin
   Inc(iCusCount);
@@ -383,6 +418,64 @@ begin
     tblCustomers.Locate('CID', frmLogin.sUser, [loCaseInsensitive]);
     tblCustomers.Insert;
   end;
+end;
+
+procedure TfrmCustomer.refreshArrCus;
+var
+  I, iCount : Integer;
+  objCustomer: TCustomer;
+begin
+  iCount := 0;
+  iCusCount := 0;
+
+  with dmTest do
+    begin
+      tblCustomers.First;
+      while NOT tblCustomers.Eof do
+        begin
+          Inc(iCusCount);
+          tblCustomers.Next;
+        end;  //WHILE
+
+    end;  //WITH
+
+  SetLength(arrCustomer, 0);
+  SetLength(arrCustomer, iCusCount);
+
+  with dmTest do
+    begin
+      tblCustomers.First;
+
+      while NOT tblCustomers.Eof do
+        begin
+          objCustomer := TCustomer.Create(tblCustomers['CID'], tblCustomers['CFirstName'],
+          tblCustomers['CLastName'],tblCustomers['CPhoneNum'],tblCustomers['CEmail'],tblCustomers['CAddress'],
+          tblCustomers['CCity'],tblCustomers['CPost'],tblCustomers['CCountry'],tblCustomers['CPayMethod'],
+          tblCustomers['CCardNum'],tblCustomers['CBankAccountNum'],tblCustomers['CPassword']);
+
+          arrCustomer[iCount] := objCustomer;  //arrCustomer populated
+
+          Inc(iCount);
+          tblCustomers.Next;
+        end;  //WHILE
+
+    end;  //WITH
+end;
+
+procedure TfrmCustomer.rgpPaymentClick(Sender: TObject);
+begin
+  case rgpPayment.ItemIndex of
+    0: begin
+      ledBank.Visible := True;
+      ledCard.Visible := False;
+    end;
+    1: begin
+      ledCard.Visible := True;
+      ledBank.Visible := False;
+    end;
+
+  end;  //CASE
+
 end;
 
 end.
