@@ -226,6 +226,7 @@ begin
     end;
     end;  //WITH
 
+  ShowMessage('Order placed.');
 end;
 
 procedure TfrmStore.btnDetailAddClick(Sender: TObject);

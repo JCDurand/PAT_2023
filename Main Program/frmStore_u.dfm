@@ -19,7 +19,7 @@ object frmStore: TfrmStore
     Top = 0
     Width = 633
     Height = 441
-    PageIndex = 1
+    PageIndex = 3
     TabFont.Charset = DEFAULT_CHARSET
     TabFont.Color = clBtnText
     TabFont.Height = -12
@@ -266,7 +266,7 @@ object frmStore: TfrmStore
         MaxValue = 255
         MinValue = 1
         TabOrder = 1
-        Value = 0
+        Value = 1
       end
       object btnDetailAdd: TButton
         Left = 288

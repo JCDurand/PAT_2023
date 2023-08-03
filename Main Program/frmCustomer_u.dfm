@@ -13,7 +13,7 @@ object frmCustomer: TfrmCustomer
   OnCreate = FormCreate
   TextHeight = 15
   object imgBack: TImage
-    Left = 0
+    Left = -5
     Top = 1
     Width = 625
     Height = 449
@@ -58,6 +58,7 @@ object frmCustomer: TfrmCustomer
     Height = 23
     Sorted = True
     TabOrder = 2
+    OnExit = cmbCountryExit
     Items.Strings = (
       'Afghanistan'
       'Albania'
@@ -105,64 +106,69 @@ object frmCustomer: TfrmCustomer
     Left = 200
     Top = 152
     Width = 145
-    Height = 27
+    Height = 23
     EditLabel.Width = 76
     EditLabel.Height = 15
     EditLabel.Caption = 'Street address:'
     TabOrder = 3
     Text = ''
+    OnExit = ledAddressExit
   end
   object ledBank: TLabeledEdit
-    Left = 392
-    Top = 281
+    Left = 393
+    Top = 265
     Width = 137
-    Height = 27
+    Height = 23
     EditLabel.Width = 120
     EditLabel.Height = 15
     EditLabel.Caption = 'Bank account number:'
     NumbersOnly = True
     TabOrder = 4
     Text = ''
+    OnExit = ledBankExit
   end
   object ledCard: TLabeledEdit
     Left = 392
-    Top = 224
+    Top = 223
     Width = 137
-    Height = 27
+    Height = 23
     EditLabel.Width = 73
     EditLabel.Height = 15
     EditLabel.Caption = 'Card number:'
     NumbersOnly = True
     TabOrder = 5
     Text = ''
+    OnExit = ledCardExit
   end
   object ledCity: TLabeledEdit
     Left = 200
     Top = 208
     Width = 145
-    Height = 27
+    Height = 23
     EditLabel.Width = 24
     EditLabel.Height = 15
     EditLabel.Caption = 'City:'
     TabOrder = 6
     Text = ''
+    OnExit = ledCityExit
   end
   object ledEmail: TLabeledEdit
     Left = 8
     Top = 152
     Width = 121
-    Height = 27
+    Height = 23
     EditLabel.Width = 75
     EditLabel.Height = 15
     EditLabel.Caption = 'Email address:'
     TabOrder = 7
     Text = ''
+    OnExit = ledEmailExit
   end
   object ledPhone: TLabeledEdit
     Left = 8
     Top = 96
     Width = 121
-    Height = 27
+    Height = 23
     EditLabel.Width = 82
     EditLabel.Height = 15
     EditLabel.Caption = 'Phone number:'
@@ -175,13 +181,14 @@ object frmCustomer: TfrmCustomer
     Left = 200
     Top = 265
     Width = 145
-    Height = 27
+    Height = 23
     EditLabel.Width = 57
     EditLabel.Height = 15
     EditLabel.Caption = 'Post Code:'
     NumbersOnly = True
     TabOrder = 9
     Text = ''
+    OnExit = ledCostCode
   end
   object ledPW: TLabeledEdit
     Left = 16
@@ -199,6 +206,7 @@ object frmCustomer: TfrmCustomer
     ShowHint = True
     TabOrder = 10
     Text = ''
+    OnExit = ledPwExit
   end
   object ledPWConf: TLabeledEdit
     Left = 16
@@ -211,6 +219,7 @@ object frmCustomer: TfrmCustomer
     PasswordChar = '*'
     TabOrder = 11
     Text = ''
+    OnExit = ledPwConfExit
   end
   object pnlInstructions: TPanel
     Left = 16
@@ -236,5 +245,6 @@ object frmCustomer: TfrmCustomer
       'Debit order'
       'Card')
     TabOrder = 13
+    OnExit = cmbCountryExit
   end
 end

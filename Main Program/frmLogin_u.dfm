@@ -159,7 +159,7 @@ object frmLogin: TfrmLogin
     EditLabel.Height = 19
     EditLabel.Caption = 'Email:'
     TabOrder = 1
-    Text = 'calcuslater@dijkstra.com'
+    Text = ''
   end
   object ledPass: TLabeledEdit
     Left = 32
@@ -171,7 +171,7 @@ object frmLogin: TfrmLogin
     EditLabel.Caption = 'Password:'
     PasswordChar = '*'
     TabOrder = 2
-    Text = '1234'
+    Text = ''
   end
   object bitbtnLogin: TBitBtn
     Left = 32
