@@ -1,11 +1,4 @@
 To do:
-Complete customer form:
-	design the GUI
-	provide system to see past orders
-	provide system to update user information
-	change password if set to 1234
-	add to log
-	
 complete supplier form:
 	design the GUI
 	provide list of product and amounts

@@ -16,9 +16,10 @@ type
     conTest: TADOConnection;
     tblCustomers, tblOrders, tblSupplier, tblProduct: TADOTable;
     dscCustomers, dscOrders, dscSupplier, dscProduct: TDataSource;
-    qryA: TADOQuery;
+    qryA, qryB: TADOQuery;
 
     procedure runSQL(sSQL: String);
+    procedure runSQL2(sSQL: String);
   end;
 
 var
@@ -34,6 +35,7 @@ procedure TdmTest.DataModuleCreate(Sender: TObject);
 begin
   conTest := TADOConnection.Create(dmTest);
   qryA := TADOQuery.Create(dmTest);
+  qryB := TADOQuery.Create(dmTest);
 
   tblCustomers := TADOTable.Create(dmTest);
   tblOrders := TADOTable.Create(dmTest);
@@ -51,6 +53,7 @@ begin
   conTest.Open();
 
   qryA.Connection := conTest;
+  qryB.Connection := conTest;
 
   tblCustomers.Connection := conTest;
   tblOrders.Connection := conTest;
@@ -80,6 +83,18 @@ begin
     qryA.Close;
     qryA.SQL.Text := sSQL;
     qryA.ExecSQL;
+  end
+  else
+    ShowMessage('No SQL statement entered.');
+end;
+
+procedure TdmTest.runSQL2(sSQL: String);
+begin
+  if Length(sSQL) <> 0 then
+  begin
+    qryB.Close;
+    qryB.SQL.Text := sSQL;
+    qryB.ExecSQL;
   end
   else
     ShowMessage('No SQL statement entered.');

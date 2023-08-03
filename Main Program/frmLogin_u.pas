@@ -58,11 +58,24 @@ procedure TfrmLogin.bitbtnLoginClick(Sender: TObject);
 var
   I: Integer;
   sEmail, sPW, sName, sSurName: String;
-  bFlag: Boolean;
+  bFlag, bFlag2: Boolean;
 begin
   sEmail := ledUsername.Text;
   sPW := ledPass.Text;
   bFlag := False;
+  bFlag2 := False;
+
+  with dmTest do
+  begin
+    if tblSupplier.Locate('SEmail', sEmail, [loCaseInsensitive]) then
+    begin
+      bFlag2 := True;
+      sUser := tblSupplier['SID'];
+      sName := tblSupplier['SFirstName'];
+      sSurName := tblSupplier['SLastName'];
+    end;
+
+  end;
 
   for I := 0 to frmCustomer.iCusCount-1 do
   begin
@@ -76,6 +89,7 @@ begin
         sUser := objCustomer.getCID;
       end //IF
 
+
   end;  //FOR
 
   if bFlag then
@@ -87,6 +101,13 @@ begin
       //TEST
       ShowMessage(sUser);
     end
+  else if bFlag2 then
+  begin
+    ShowMessage('Welcome, ' + sName);
+    frmLogin.Hide;
+    frmSupplier.Show;
+    frmTFile.addSupLine(sName + ' ' + sSurName + ' logged in');
+  end
   else
     begin
       ShowMessage('Invalid credentials entered.');

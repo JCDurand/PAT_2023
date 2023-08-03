@@ -12,11 +12,12 @@ type
     procedure formCreate(Sender: TObject);
   private
     { Private declarations }
-    tCustFile, tOrdFile: TextFile;
+    tCustFile, tOrdFile, tSupFile: TextFile;
   public
     { Public declarations }
     procedure addCustLine(sLine: String);
     procedure addOrderLine(sLine: String);
+    procedure addSupLine(sLine: String);
   end;
 
 var
@@ -47,7 +48,20 @@ begin
   Append(tOrdFile);
 
   sWrite := DateTimeToStr(NOW)+ ': ' + sLine;
+  WriteLn(tOrdFile, sLine);
+  CloseFile(tOrdFile);
+end;
 
+procedure TfrmTFile.addSupLine(sLine: String);
+var
+  sWrite: String;
+begin
+  AssignFile(tSupFile, 'logSupplier.txt');
+  Append(tSupFile);
+
+  sWrite := DateTimeToStr(NOW)+ ': ' + sLine;
+  Writeln(tSupFile, sWrite);
+  CloseFile(tSupFile);
 end;
 
 procedure TfrmTFile.formCreate(Sender: TObject);
@@ -65,6 +79,13 @@ begin
     Rewrite(tOrdFile);
     CloseFile(tOrdFile);
   end;  //IF
+
+  if NOT FileExists('logSupplier.txt.') then
+  begin
+    AssignFile(tCustFile, 'logSupplier.txt');
+    Rewrite(tCustFile);
+    CloseFile(tCustFile);
+  end;
 end;
 
 end.

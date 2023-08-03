@@ -19,7 +19,6 @@ object frmCustomer: TfrmCustomer
     Top = 0
     Width = 625
     Height = 441
-    PageIndex = 1
     TabFont.Charset = DEFAULT_CHARSET
     TabFont.Color = clBtnText
     TabFont.Height = -12
@@ -30,8 +29,8 @@ object frmCustomer: TfrmCustomer
       Left = 4
       Top = 26
       Caption = 'Orders'
-      ExplicitWidth = 292
-      ExplicitHeight = 220
+      ExplicitTop = 30
+      ExplicitHeight = 407
       object imgBack: TImage
         Left = -21
         Top = -39
@@ -275,10 +274,8 @@ object frmCustomer: TfrmCustomer
       Left = 4
       Top = 26
       Caption = 'Info'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
+      ExplicitTop = 30
+      ExplicitHeight = 407
       object lblPast: TLabel
         Left = 8
         Top = 9
