@@ -2,8 +2,8 @@ object frmLogin: TfrmLogin
   Left = 0
   Top = 0
   Caption = 'Login'
-  ClientHeight = 441
-  ClientWidth = 624
+  ClientHeight = 440
+  ClientWidth = 620
   Color = clBtnFace
   Font.Charset = ANSI_CHARSET
   Font.Color = clWindowText
@@ -211,5 +211,14 @@ object frmLogin: TfrmLogin
     Caption = 'Forgot Password?'
     TabOrder = 6
     OnClick = btnForgotClick
+  end
+  object btnAdmin: TButton
+    Left = 328
+    Top = 272
+    Width = 143
+    Height = 25
+    Caption = 'Show Admin Form'
+    TabOrder = 7
+    OnClick = btnAdminClick
   end
 end

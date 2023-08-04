@@ -23,12 +23,14 @@ type
     imgTree: TImage;
     btnForgot: TButton;
     imgPWShow: TImage;
+    btnAdmin: TButton;
     procedure btnRegisterClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure bitbtnCloseClick(Sender: TObject);
     procedure bitbtnLoginClick(Sender: TObject);
     procedure btnForgotClick(Sender: TObject);
     procedure imgPWShowClick(Sender: TObject);
+    procedure btnAdminClick(Sender: TObject);
   private
     { Private declarations }
     objCustomer: TCustomer;
@@ -105,8 +107,11 @@ begin
   begin
     ShowMessage('Welcome, admin');
     frmLogin.Hide;
-    frmAdmin.Show;
+
+    frmAdmin.ShowModal; //not working, see btnAdmin
+    ShowMessage('Hello world.');
     frmTFile.addSupLine('Admin has logged in.');
+    Exit;
   end
   else if bFlag then
     begin
@@ -157,6 +162,12 @@ procedure TfrmLogin.btnRegisterClick(Sender: TObject);
 begin
   frmLogin.Hide;
   frmRegister.Show;
+end;
+
+procedure TfrmLogin.btnAdminClick(Sender: TObject);
+begin
+  frmLogin.Hide;
+  frmAdmin.Show;
 end;
 
 procedure TfrmLogin.FormShow(Sender: TObject);

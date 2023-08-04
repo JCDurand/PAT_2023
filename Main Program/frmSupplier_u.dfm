@@ -62,7 +62,7 @@ object frmSupplier: TfrmSupplier
         TabOrder = 2
         Text = ''
       end
-      object ledPass: TLabeledEdit
+      object ledPW: TLabeledEdit
         Left = 448
         Top = 167
         Width = 121
@@ -89,6 +89,7 @@ object frmSupplier: TfrmSupplier
         Height = 25
         Caption = 'Update'
         TabOrder = 5
+        OnClick = btnPhoneClick
       end
       object btnPass: TButton
         Left = 448
@@ -97,6 +98,16 @@ object frmSupplier: TfrmSupplier
         Height = 25
         Caption = 'Update'
         TabOrder = 6
+        OnClick = btnPassClick
+      end
+      object btnLogout: TButton
+        Left = 25
+        Top = 368
+        Width = 88
+        Height = 25
+        Caption = 'Logout'
+        TabOrder = 7
+        OnClick = btnLogoutClick
       end
     end
     object TTabPage
@@ -109,6 +120,13 @@ object frmSupplier: TfrmSupplier
         Width = 96
         Height = 15
         Caption = 'Product Category:'
+      end
+      object lblAmount: TLabel
+        Left = 293
+        Top = 146
+        Width = 90
+        Height = 15
+        Caption = 'Product amount:'
       end
       object btnAddProd: TButton
         Left = 8
@@ -170,7 +188,7 @@ object frmSupplier: TfrmSupplier
       object sedAmount: TSpinEdit
         Left = 293
         Top = 167
-        Width = 44
+        Width = 90
         Height = 24
         MaxValue = 0
         MinValue = 0
@@ -207,14 +225,6 @@ object frmSupplier: TfrmSupplier
         Caption = 'Modify amount'
         TabOrder = 8
         OnClick = btnModAmClick
-      end
-      object btnRefresh: TButton
-        Left = 486
-        Top = 190
-        Width = 75
-        Height = 25
-        Caption = 'Refresh'
-        TabOrder = 9
       end
     end
   end

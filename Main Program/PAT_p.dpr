@@ -23,7 +23,6 @@ begin
   Application.CreateForm(TfrmLogin, frmLogin);
   Application.CreateForm(TdmTest, dmTest);
   Application.CreateForm(TfrmPopulate, frmPopulate);
-
   Application.CreateForm(TfrmRegister, frmRegister);
   Application.CreateForm(TfrmCustomer, frmCustomer);
   Application.CreateForm(TfrmSupplier, frmSupplier);
