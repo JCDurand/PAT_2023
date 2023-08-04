@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.TabNotBk,
   Vcl.Mask, Vcl.Buttons, ADODB, DATA.DB,
   dmTest_u,
-  clsCustomer_u, frmTFile_u;
+  clsCustomer_u, frmTFile_u, Vcl.Grids, Vcl.DBGrids;
 
 type
   TfrmCustomer = class(TForm)
@@ -29,9 +29,9 @@ type
     ledPWConf: TLabeledEdit;
     pnlInstructions: TPanel;
     rgpPayment: TRadioGroup;
-    redPast: TRichEdit;
     lblPast: TLabel;
     btnViewPast: TButton;
+    DBGrid1: TDBGrid;
     procedure FormCreate(Sender: TObject);
     procedure increaseArraySize;
     procedure addCustomer(objCustomer: TCustomer);
@@ -101,20 +101,12 @@ procedure TfrmCustomer.btnViewPastClick(Sender: TObject);
 var
   sName: String;
 begin
-  redPast.Clear;
+
 
   with dmTest do
   begin
-    runSQL('SELECT * FROM Orders WHERE OCustomer = ' + QuotedStr(frmLogin.sUser));
-
-    while NOT tblOrders.Eof do
-    begin
-      tblProduct.Locate('PID', tblOrders['OProduct'], [loCaseInsensitive]);
-      sName := tblProduct['PName'];
-
-      redPast.Lines.Add(sName + ': ' + IntToStr(tblOrders['OAmount']));
-      tblOrders.Next;
-    end;
+    runSQLProd('SELECT P.PName, O.OAmount FROM Orders O, Product P WHERE (O.OProduct = P.PID) AND (O.OCustomer = ' + QuotedStr(frmLogin.sUser) + ')');
+    DBGrid1.DataSource := qdscProd;
 
   end;
 end;

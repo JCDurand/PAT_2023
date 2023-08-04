@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.TabNotBk,
   Vcl.Mask, Vcl.Buttons, ADODB, DATA.DB,
   dmTest_u,
-  clsCustomer_u, frmTFile_u;
+  clsCustomer_u, frmTFile_u, Vcl.Grids, Vcl.DBGrids;
 
 type
   TfrmCustomer = class(TForm)
@@ -32,6 +32,7 @@ type
     redPast: TRichEdit;
     lblPast: TLabel;
     btnViewPast: TButton;
+    DBGrid1: TDBGrid;
     procedure FormCreate(Sender: TObject);
     procedure increaseArraySize;
     procedure addCustomer(objCustomer: TCustomer);
@@ -49,6 +50,7 @@ type
     procedure bitbtnUpdateClick(Sender: TObject);
     procedure rgpPaymentClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure btnViewPastClick(Sender: TObject);
   private
     { Private declarations }
     sPassCheck: String;
@@ -94,6 +96,29 @@ begin
   dmTest.runSQL('SELECT CFirstName, CLastName FROM Customer WHERE CID = ' + QuotedStr(frmLogin.sUser));
   with dmTest do
     frmTFile.addCustLine(tblCustomers['CFirstName'] + ' ' + tblCustomers['CLastName'] + ' changed their password.');
+end;
+
+procedure TfrmCustomer.btnViewPastClick(Sender: TObject);
+var
+  sName: String;
+begin
+  redPast.Clear;
+
+  with dmTest do
+  begin
+    runSQLProd('SELECT P.PName, O.OAmount FROM Orders O, Product P WHERE (O.OProduct = P.PID) AND (O.OCustomer = ' + QuotedStr(frmLogin.sUser) + ')');
+    DBGrid1.DataSource := qdscProd;
+
+    while NOT tblOrders.Eof do
+    begin
+      tblProduct.Locate('PID', tblOrders['OProduct'], [loCaseInsensitive]);
+      sName := tblProduct['PName'];
+
+      redPast.Lines.Add(sName + ': ' + IntToStr(tblOrders['OAmount']));
+      tblOrders.Next;
+    end;
+
+  end;
 end;
 
 procedure TfrmCustomer.cmbCountryExit(Sender: TObject);

@@ -139,9 +139,10 @@ begin
 
   with dmTest do
   begin
-    runSQL('SELECT CPassword, CEmail FROM Customer WHERE CEmail = ' + QuotedStr(sEmail));
+    {runSQL2('SELECT CPassword, CEmail FROM Customer WHERE CEmail = ' + QuotedStr(sEmail));}
 
-    if tblCustomers['CEmail'] = sEmail then
+
+    if tblCustomers.Locate('CEmail', sEmail, [loCaseInsensitive]) then
       ShowMessage('Your password is: ' + tblCustomers['CPassword'])
     else
       ShowMessage('Invalid email entered.');

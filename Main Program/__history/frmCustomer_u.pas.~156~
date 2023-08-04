@@ -31,6 +31,7 @@ type
     rgpPayment: TRadioGroup;
     redPast: TRichEdit;
     lblPast: TLabel;
+    btnViewPast: TButton;
     procedure FormCreate(Sender: TObject);
     procedure increaseArraySize;
     procedure addCustomer(objCustomer: TCustomer);
@@ -48,6 +49,7 @@ type
     procedure bitbtnUpdateClick(Sender: TObject);
     procedure rgpPaymentClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure btnViewPastClick(Sender: TObject);
   private
     { Private declarations }
     sPassCheck: String;
@@ -93,6 +95,29 @@ begin
   dmTest.runSQL('SELECT CFirstName, CLastName FROM Customer WHERE CID = ' + QuotedStr(frmLogin.sUser));
   with dmTest do
     frmTFile.addCustLine(tblCustomers['CFirstName'] + ' ' + tblCustomers['CLastName'] + ' changed their password.');
+end;
+
+procedure TfrmCustomer.btnViewPastClick(Sender: TObject);
+var
+  sName: String;
+begin
+  redPast.Clear;
+
+  with dmTest do
+  begin
+    runSQL2('SELECT * FROM Orders WHERE OCustomer = ' + QuotedStr(frmLogin.sUser));
+    tblOrders.First;
+
+    while NOT tblOrders.Eof do
+    begin
+      tblProduct.Locate('PID', tblOrders['OProduct'], [loCaseInsensitive]);
+      sName := tblProduct['PName'];
+
+      redPast.Lines.Add(sName + ': ' + IntToStr(tblOrders['OAmount']));
+      tblOrders.Next;
+    end;
+
+  end;
 end;
 
 procedure TfrmCustomer.cmbCountryExit(Sender: TObject);

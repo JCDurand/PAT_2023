@@ -19,6 +19,7 @@ object frmCustomer: TfrmCustomer
     Top = 0
     Width = 625
     Height = 441
+    PageIndex = 1
     TabFont.Charset = DEFAULT_CHARSET
     TabFont.Color = clBtnText
     TabFont.Height = -12
@@ -303,13 +304,21 @@ object frmCustomer: TfrmCustomer
         Top = 26
         Width = 320
         Height = 383
-        ReadOnly = True
         TabOrder = 1
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
         TitleFont.Height = -16
         TitleFont.Name = 'Times New Roman'
         TitleFont.Style = []
+        Columns = <
+          item
+            Expanded = False
+            Visible = True
+          end
+          item
+            Expanded = False
+            Visible = True
+          end>
       end
     end
   end

@@ -289,27 +289,27 @@ object frmCustomer: TfrmCustomer
         Font.Style = [fsBold]
         ParentFont = False
       end
+      object redPast: TRichEdit
+        Left = 9
+        Top = 30
+        Width = 336
+        Height = 371
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+      end
       object btnViewPast: TButton
-        Left = 371
+        Left = 387
         Top = 177
         Width = 217
         Height = 58
         Caption = 'View past orders'
-        TabOrder = 0
-        OnClick = btnViewPastClick
-      end
-      object DBGrid1: TDBGrid
-        Left = 8
-        Top = 26
-        Width = 320
-        Height = 383
-        ReadOnly = True
         TabOrder = 1
-        TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWindowText
-        TitleFont.Height = -16
-        TitleFont.Name = 'Times New Roman'
-        TitleFont.Style = []
+        OnClick = btnViewPastClick
       end
     end
   end

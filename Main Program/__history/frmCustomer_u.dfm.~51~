@@ -19,6 +19,7 @@ object frmCustomer: TfrmCustomer
     Top = 0
     Width = 625
     Height = 441
+    PageIndex = 1
     TabFont.Charset = DEFAULT_CHARSET
     TabFont.Color = clBtnText
     TabFont.Height = -12

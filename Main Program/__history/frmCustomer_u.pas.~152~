@@ -109,8 +109,10 @@ begin
 
     while NOT tblOrders.Eof do
     begin
+      tblProduct.Locate('PID', tblOrders['OProduct'], [loCaseInsensitive]);
+      sName := tblProduct['PName'];
 
-      redPast.Lines.Add(tblOrders['OProduct'] + ': ' + IntToStr(tblOrders['OAmount']));
+      redPast.Lines.Add(sName + ': ' + IntToStr(tblOrders['OAmount']));
       tblOrders.Next;
     end;
 

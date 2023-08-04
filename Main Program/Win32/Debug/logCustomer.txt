@@ -98,3 +98,37 @@
 2023/08/03 23:13:41; ABlackwell930 logged out.
 2023/08/04 00:10:34; admin admin logged in.
 2023/08/04 00:11:39; Invalid credentials entered.
+2023-08-04 09:35:36; Invalid credentials entered.
+2023-08-04 09:35:48; Invalid credentials entered.
+2023-08-04 09:36:21; Invalid credentials entered.
+2023-08-04 09:37:06; Anaya  White logged in.
+2023-08-04 09:38:17; AWhite978 logged out.
+2023-08-04 09:38:38; admin admin recovered their password.
+2023-08-04 09:38:56; admin admin recovered their password.
+2023-08-04 09:39:53; admin admin recovered their password.
+2023-08-04 09:40:14; admin admin recovered their password.
+2023-08-04 09:42:07; admin admin recovered their password.
+2023-08-04 09:42:20; admin admin recovered their password.
+2023-08-04 09:42:26; admin admin recovered their password.
+2023-08-04 09:43:03; admin admin recovered their password.
+2023-08-04 09:43:41; admin admin recovered their password.
+2023-08-04 09:45:35; Emilee  Cardenas recovered their password.
+2023-08-04 09:45:39; Emilee  Cardenas recovered their password.
+2023-08-04 09:45:50; Evelyn  Hess recovered their password.
+2023-08-04 09:45:54; Evelyn  Hess recovered their password.
+2023-08-04 09:47:14; New user added: Wernhard van Rooyen.
+2023-08-04 09:47:33; Wernhard van Rooyen logged in.
+2023-08-04 09:51:10; Wvan Rooyen843 logged out.
+2023-08-04 09:51:46; Invalid credentials entered.
+2023-08-04 09:51:54; Wernhard van Rooyen logged in.
+2023-08-04 09:55:33; Wernhard van Rooyen logged in.
+2023-08-04 09:56:05; Wernhard van Rooyen logged in.
+2023-08-04 09:57:26; Wernhard van Rooyen logged in.
+2023-08-04 09:58:10; Wernhard van Rooyen logged in.
+2023-08-04 09:59:21; Wernhard van Rooyen logged in.
+2023-08-04 10:06:41; Wernhard van Rooyen logged in.
+2023-08-04 10:07:49; Wernhard van Rooyen logged in.
+2023-08-04 10:08:45; Wernhard van Rooyen logged in.
+2023-08-04 10:09:08; Wvan Rooyen843 logged out.
+2023-08-04 10:10:29; Wernhard van Rooyen logged in.
+2023-08-04 10:10:36; Wvan Rooyen843 logged out.

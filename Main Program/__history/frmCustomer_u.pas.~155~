@@ -105,13 +105,15 @@ begin
 
   with dmTest do
   begin
-    runSQL('SELECT * FROM Orders WHERE OCustomer = ' + QuotedStr(frmLogin.sUser));
+    runSQL2('SELECT * FROM Orders WHERE OCustomer = ' + QuotedStr(frmLogin.sUser));
 
     while NOT tblOrders.Eof do
     begin
+      tblOrders.First;
       tblProduct.Locate('PID', tblOrders['OProduct'], [loCaseInsensitive]);
+      sName := tblProduct['PName'];
 
-      redPast.Lines.Add(tblOrders['OProduct'] + ': ' + IntToStr(tblOrders['OAmount']));
+      redPast.Lines.Add(sName + ': ' + IntToStr(tblOrders['OAmount']));
       tblOrders.Next;
     end;
 
