@@ -3,4 +3,4 @@ arden_tremblay@yahoo.com
 chaz@upcycle.green
 adrien@ekosell.jp
 
-C:\Users\Jean Durand\Pictures\Crabsquid.jpg
+    runSQL('SELECT SCompany, SEmail, sPhoneNum, sPassword FROM Supplier WHERE SID = ' + QuotedStr(frmLogin.sUser));
